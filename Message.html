@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 50px;
+        }
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Your Hidden Message</h1>
+    <p>Enter the password to unlock the message:</p>
+    
+    <input type="password" id="password" placeholder="Enter your password">
+    <button onclick="unlockMessage()">Unlock Message</button>
+
+    <div class="hidden-message" id="message">
+        <h2>Your Message:</h2>
+        <p>When I first saw you, it was not with the eyes alone. There was something in that moment, something sacred...</p>
+        <p>...You may never know how much I love you. But know this you are always in my prayers.</p>
+    </div>
+
+    <script>
+        function unlockMessage() {
+            const password = document.getElementById("password").value;
+            const correctPassword = "Yugsaman"; // Replace with your password
+
+            if (password === correctPassword) {
+                document.getElementById("message").style.display = "block";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
