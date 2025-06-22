@@ -17,8 +17,8 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #F0F0F0; /* Light background */
-      color: #333333; /* Dark text */
+      background-color: #ffffff; /* White background for a clean design */
+      color: #333333; /* Dark text for good readability */
       overflow-x: hidden; /* Prevent horizontal scrolling */
     }
 
@@ -81,20 +81,6 @@
     }
 
     /* Custom Styles for Your Page */
-    body {
-      font-family: Arial, sans-serif;
-      padding: 2em;
-      background: #87CEEB; /* Sky blue background */
-      color: #D3D3D3; /* Soft grey text color */
-    }
-
-    #message {
-      white-space: pre-wrap;
-      margin-top: 20px;
-      display: none;
-      color: #D3D3D3;
-    }
-
     input, button {
       font-size: 1em;
       padding: 0.5em;
@@ -128,13 +114,24 @@
     #intro-text h2, #intro-text p {
       margin: 0;
     }
+
+    #message {
+      white-space: pre-wrap;
+      margin-top: 20px;
+      display: none;
+      color: #333333;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 
 <body>
 
   <div id="intro-text">
-    <h2>🌸🤍🕯️ Curiosity brought you here! You came back chasing a feeling,what lived between us.</h2>
+    <h2>🌸🤍🕯️ Curiosity brought you here! You came back chasing a feeling, what lived between us.</h2>
     <p>Here, my heart is spoken out, to thee alone.., You are my.?.:</p>
   </div>
 
@@ -201,4 +198,7 @@
 
       if (entered === correctPassword) {
         messageBox.innerText = hiddenMessage;
-        messageBox.style.display = "
+        messageBox.style.display = "block"; // Make sure it becomes visible
+      } else {
+        messageBox.innerText = "Incorrect password. Please try again.";
+       
