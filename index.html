@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saman Azeemi</title>
-  
+
+  <!-- External GitHub Minimalistic Stylesheet -->
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -13,37 +14,41 @@
       background-color: #f6f8fa; 
       color: #24292f;
       overflow-x: hidden;
+      line-height: 1.5;
     }
 
     h1, h2 {
       color: #24292f;
-      margin: 0 0 20px;
+      margin-bottom: 20px;
     }
 
     p {
-      font-size: 18px;
+      font-size: 16px;
       color: #24292f;
       margin-bottom: 20px;
     }
 
     .reveal-tab {
-      /* Removed all styles */
-      cursor: default; /* Default cursor */
-      color: inherit; /* Inherits color from parent */
-      text-decoration: none; /* No underline */
-      background: none; /* No background */
-      border: none; /* No border */
-      padding: 0; /* No padding */
-      margin-top: 20px; /* Optional margin if needed */
+      cursor: pointer;
+      color: #0366d6;
+      text-decoration: none;
+      background: none;
+      border: none;
+      padding: 0;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .reveal-tab:hover {
+      text-decoration: underline;
     }
 
     #message {
       white-space: pre-wrap;
       margin-top: 20px;
       display: none;
-      color: #24292f;
       padding: 20px;
-      background-color: #f6f8fa; 
+      background-color: #ffffff;
       border: 1px solid #d0d7de;
       border-radius: 6px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -61,48 +66,81 @@
     button:hover, input:focus {
       background-color: #3c4248;
     }
+
+    /* Audio player styling */
+    audio {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    /* Optional styling for the container */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
   </style>
 </head>
 
 <body>
 
-  <div id="intro-text">
-    <h2>🌸🤍🕯️ Curiosity brought you here! You came back chasing a feeling, what lived between us.</h2>
-    <p>Here, my heart is spoken out, to thee alone.., You are my.?.:</p>
+  <!-- Main Container -->
+  <div class="container">
+    <div id="intro-text">
+      <h2>🌸🤍🕯️ Curiosity brought you here! You came back chasing a feeling, what lived between us.</h2>
+      <p>Here, my heart is spoken out, to thee alone.., You are my.?.:</p>
+    </div>
+
+    <!-- Audio Tag for Autoplay and Loop -->
+    <audio id="audio-player" autoplay loop>
+      <source src="echo.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Password Input and Reveal Button -->
+    <input type="password" id="password" placeholder="Enter password" aria-label="Enter password" />
+    <button class="reveal-tab" onclick="checkPassword()">Reveal</button>
+
+    <div id="message"></div>
   </div>
-
-  <!-- Audio Tag for Autoplay and Loop -->
-  <audio autoplay loop>
-    <source src="echo.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
-
-  <!-- Password Input and Reveal Button with class 'reveal-tab' -->
-  <input type="password" id="password" placeholder="Enter password" aria-label="Enter password" />
-  <button class="reveal-tab" onclick="checkPassword()">Reveal</button>
-
-  <div id="message"></div>
 
   <script>
     // Password Logic
     const correctPassword = "Champion";
     const hiddenMessage = `There was something in that moment, something sacred...
     When I first saw you, it was not with the eyes alone.
-There was something in that moment, something sacred. Though I had long abandoned the idea of such connections believing them to be illusions, distractions of the heart in that instant, I felt something awaken within me, something wordless and real.
-You stood there, dressed white, as though the world paused just to let you pass untouched. The dress did not make you fascinating rather, it revealed your aura. A stillness I craved.
-I knew then that whatever I actually deeply desire is not destined to remain with me. Such is the case I’ve known since youth. that whatever touches the soul must pass like a dream.
-I stepped forward, not with hope, but with curiosity. Yet almost at once, I recognized the silent decree that we would not walk together under the sun of this world.
-Still, I could not look away.
-Strange it is you cause me pain, and yet your very presence soothes it. I do not understand this paradox, only that it is real.
-Each morning, I rise, yours is the first thought that drifts across.
-In every moment of truth when life becomes more than noise and movement, you appear not as a memory but as a presence. 
-I know we cannot be together here. With these rules and illusions. But in the realm of the Eternal where there is no separation, I have asked for you. I have seen us there, side by side, heads bowed in front of Allah as a piece into two of one soul.
-Little do you know what I carry for you, you would understand.
-I carry many responsibilities toward my parents, my brothers, my sisters and I embrace them with reverence. But love… love is something different.
-It is not duty. It is not comfort. It is the silent willingness to disappear into someone else’s presence without fear. And in this world, among the people I have known, there are whom I would offer my life without question: my Sheikh my huzur, my Father my Abbu Jee… and you.
-I speak to God of you daily.
-In my moments, I imagine you sitting beside me as a dopamine. I do not speak easily to others but to you in silence, I tell everything.
-I imagine a place beyond all impurity, where we speak as souls, not as strangers.
-No lifetime could ever be long enough to express this love. Even a thousand shared days could not reveal the quiet peace I imagine beside you.
-You may never know how much I love you.
-But know this you are always in my prayers.
+    There was something in that moment, something sacred. Though I had long abandoned the idea of such connections believing them to be illusions, distractions of the heart in that instant, I felt something awaken within me, something wordless and real.
+    You stood there, dressed white, as though the world paused just to let you pass untouched. The dress did not make you fascinating rather, it revealed your aura. A stillness I craved.
+    I knew then that whatever I actually deeply desire is not destined to remain with me. Such is the case I’ve known since youth. that whatever touches the soul must pass like a dream.
+    I stepped forward, not with hope, but with curiosity. Yet almost at once, I recognized the silent decree that we would not walk together under the sun of this world.
+    Still, I could not look away.
+    Strange it is you cause me pain, and yet your very presence soothes it. I do not understand this paradox, only that it is real.
+    Each morning, I rise, yours is the first thought that drifts across.
+    In every moment of truth when life becomes more than noise and movement, you appear not as a memory but as a presence. 
+    I know we cannot be together here. With these rules and illusions. But in the realm of the Eternal where there is no separation, I have asked for you. I have seen us there, side by side, heads bowed in front of Allah as a piece into two of one soul.
+    Little do you know what I carry for you, you would understand.
+    I carry many responsibilities toward my parents, my brothers, my sisters and I embrace them with reverence. But love… love is something different.
+    It is not duty. It is not comfort. It is the silent willingness to disappear into someone else’s presence without fear. And in this world, among the people I have known, there are whom I would offer my life without question: my Sheikh my huzur, my Father my Abbu Jee… and you.
+    I speak to God of you daily.
+    In my moments, I imagine you sitting beside me as a dopamine. I do not speak easily to others but to you in silence, I tell everything.
+    I imagine a place beyond all impurity, where we speak as souls, not as strangers.
+    No lifetime could ever be long enough to express this love. Even a thousand shared days could not reveal the quiet peace I imagine beside you.
+    You may never know how much I love you.
+    But know this you are always in my prayers.`;
+
+    function checkPassword() {
+      const entered = document.getElementById("password").value;
+      const messageBox = document.getElementById("message");
+
+      if (entered === correctPassword) {
+        messageBox.innerText = hiddenMessage;
+        messageBox.style.display = "block";
+      } else {
+        messageBox.innerText = "nah!"; // Display "nah!" on wrong password
+        messageBox.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
