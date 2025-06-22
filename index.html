@@ -11,7 +11,7 @@
   <style>
     body { font-family: Arial, sans-serif; padding: 2em; background: #f4f4f4; color: #333; }
     #message {
-      white-space: pre-wrap;  /* Keeps the formatting of the message */
+      white-space: pre-wrap; /* Keep line breaks and spaces */
       margin-top: 20px;
       font-size: 1.2em;
       line-height: 1.5;
@@ -22,8 +22,10 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       width: 100%;
       max-width: 800px;
+      border: 1px solid #ccc;
     }
     input, button { font-size: 1em; padding: 0.5em; margin: 5px; }
+    h2, p { color: #333; }
   </style>
 </head>
 <body>
@@ -35,7 +37,7 @@
 
   <h2>🌸🤍🕯️Curiosity brought you here because what’s real within you longs! You came back chasing a feeling. You came for what lived between us.</h2>
   <p>Here, my heart is spoken out, to thee alone.. Within abyss’s realm, the soul’s name I crave.?:</p>
-  
+
   <input type="password" id="password" placeholder="Enter password" />
   <button onclick="checkPassword()">Reveal</button>
 
@@ -62,4 +64,34 @@ I knew then that whatever I actually deeply desire is not destined to remain wit
 I stepped forward, not with hope, but with curiosity. Yet almost at once, I recognized the silent decree that we would not walk together under the sun of this world.
 Still, I could not look away.
 Strange it is you cause me pain, and yet your very presence soothes it. I do not understand this paradox, only that it is real.
-Each morning,
+Each morning, I rise, yours is the first thought that drifts across.
+In every moment of truth when life becomes more than noise and movement, you appear not as a memory but as a presence.
+I know we cannot be together here. With these rules and illusions. But in the realm of the Eternal where there is no separation, I have asked for you. I have seen us there, side by side, heads bowed in front of Allah as a piece into two of one soul.
+Little do you know what I carry for you, you would understand.
+I carry many responsibilities toward my parents, my brothers, my sisters, and I embrace them with reverence. But love… love is something different.
+It is not duty. It is not comfort. It is the silent willingness to disappear into someone else’s presence without fear. And in this world, among the people I have known, there are those whom I would offer my life without question: my Sheikh, my huzur, my Father, my Abbu Jee… and you.
+I speak to God of you daily.
+In my moments, I imagine you sitting beside me as a dopamine. I do not speak easily to others, but to you in silence, I tell everything.
+I imagine a place beyond all impurity, where we speak as souls, not as strangers.
+No lifetime could ever be long enough to express this love. Even a thousand shared days could not reveal the quiet peace I imagine beside you.
+You may never know how much I love you.
+But know this: you are always in my prayers.
+And even if all else is lost to this world,
+I will go on asking for you from the One who understands all longing.`;
+
+    function checkPassword() {
+      const entered = document.getElementById("password").value;
+      const messageBox = document.getElementById("message");
+
+      // Check if the entered password is correct
+      if (entered === correctPassword) {
+        messageBox.innerText = fullMessage; // Display full hidden message
+        messageBox.style.display = "block"; // Make the message visible
+      } else {
+        messageBox.innerText = "❌ Wrong password."; // Error message if password is incorrect
+        messageBox.style.display = "block"; // Make error message visible
+      }
+    }
+  </script>
+</body>
+</html>
