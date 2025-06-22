@@ -82,6 +82,14 @@
     a:hover {
       text-decoration: underline;
     }
+
+    /* Reveal Tab Styles */
+    .reveal-tab {
+      cursor: pointer; /* Change cursor to pointer when hovering */
+      color: #0366d6;
+      text-decoration: underline;
+      margin-top: 20px;
+    }
   </style>
 </head>
 
@@ -94,7 +102,7 @@
 
   <!-- Audio Player with Autoplay, Loop, and Volume Control -->
   <audio id="backgroundMusic" autoplay loop>
-    <source src="echo.mp3" type="audio/mp3">
+    <source src="https://samanazeemi.github.io/Saman/echo.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 
@@ -104,6 +112,9 @@
 
   <!-- Hidden Message Box -->
   <div id="message"></div>
+
+  <!-- Reveal Tab with cursor change -->
+  <div class="reveal-tab" onclick="revealMessage()">Click to reveal the secret message</div>
 
   <script>
     // Password Logic
@@ -131,17 +142,25 @@
     And even if all else is lost to this world,
     I will go on asking for you from the One who understands all longing.`;
 
+    // Check the entered password
     function checkPassword() {
       const entered = document.getElementById("password").value;
       const messageBox = document.getElementById("message");
 
       if (entered === correctPassword) {
         messageBox.innerText = hiddenMessage;
-        messageBox.style.display = "block";
+        messageBox.style.display = "block"; // Show the hidden message
       } else {
         messageBox.innerText = "❌ Wrong password.";
-        messageBox.style.display = "block";
+        messageBox.style.display = "block"; // Show wrong password message
       }
+    }
+
+    // Function to reveal the message when clicking the reveal tab
+    function revealMessage() {
+      const messageBox = document.getElementById("message");
+      messageBox.innerText = "You have revealed the secret!";
+      messageBox.style.display = "block"; // Show the revealed message
     }
   </script>
 
