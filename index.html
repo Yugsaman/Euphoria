@@ -27,17 +27,14 @@
     }
 
     .reveal-tab {
-      cursor: pointer; 
-      color: #0366d6;
-      text-decoration: underline;
-      margin-top: 20px;
-      border: none; 
-      background: none; 
-    }
-
-    .reveal-tab:hover {
-      cursor: pointer; 
-      text-decoration: none;
+      /* Removed all styles */
+      cursor: default; /* Default cursor */
+      color: inherit; /* Inherits color from parent */
+      text-decoration: none; /* No underline */
+      background: none; /* No background */
+      border: none; /* No border */
+      padding: 0; /* No padding */
+      margin-top: 20px; /* Optional margin if needed */
     }
 
     #message {
@@ -51,6 +48,7 @@
       border-radius: 6px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
+
     input, button {
       font-size: 1em;
       padding: 0.5em;
@@ -72,10 +70,14 @@
     <h2>🌸🤍🕯️ Curiosity brought you here! You came back chasing a feeling, what lived between us.</h2>
     <p>Here, my heart is spoken out, to thee alone.., You are my.?.:</p>
   </div>
+
+  <!-- Audio Tag for Autoplay and Loop -->
   <audio autoplay loop>
     <source src="echo.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
+
+  <!-- Password Input and Reveal Button with class 'reveal-tab' -->
   <input type="password" id="password" placeholder="Enter password" aria-label="Enter password" />
   <button class="reveal-tab" onclick="checkPassword()">Reveal</button>
 
@@ -97,29 +99,4 @@
     I know we cannot be together here. With these rules and illusions. But in the realm of the Eternal where there is no separation, I have asked for you. I have seen us there, side by side, heads bowed in front of Allah as a piece into two of one soul.
     Little do you know what I carry for you, you would understand.
     I carry many responsibilities toward my parents, my brothers, my sisters and I embrace them with reverence. But love… love is something different.
-    It is not duty. It is not comfort. It is the silent willingness to disappear into someone else’s presence without fear. And in this world, among the people I have known, there are whom I would offer my life without question: my Sheikh my huzur, my Father my Abbu Jee… and you.
-    I speak to God of you daily.
-    In my moments, I imagine you sitting beside me as a dopamine. I do not speak easily to others but to you in silence, I tell everything.
-    I imagine a place beyond all impurity, where we speak as souls, not as strangers.
-    No lifetime could ever be long enough to express this love. Even a thousand shared days could not reveal the quiet peace I imagine beside you.
-    You may never know how much I love you.
-    But know this you are always in my prayers
-    And even if all else is lost to this world,
-    I will go on asking for you from the One who understands all longing.`;
-
-    function checkPassword() {
-      const entered = document.getElementById("password").value;
-      const messageBox = document.getElementById("message");
-
-      if (entered === correctPassword) {
-        messageBox.innerText = hiddenMessage;
-        messageBox.style.display = "block";
-      } else {
-        messageBox.innerText = "nah !"; // Display "nah!" on wrong password
-        messageBox.style.display = "block";
-      }
-    }
-  </script>
-
-</body>
-</html>
+    It is not duty. It is not comfort. It is the si
