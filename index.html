@@ -8,22 +8,22 @@
   <style>
     /* General Body Styles */
     body {
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #ffffff; /* White background for entire page */
-      color: #000000; /* Black text */
+      background-color: #f6f8fa; /* Light gray background like GitHub */
+      color: #24292f; /* Dark gray text like GitHub */
       overflow-x: hidden; /* Prevent horizontal scrolling */
     }
 
     h1, h2 {
-      color: #000000; /* Black Titles */
+      color: #24292f; /* Dark Gray Titles */
       margin: 0 0 20px;
     }
 
     p {
       font-size: 18px;
-      color: #000000; /* Black Text */
+      color: #24292f; /* Dark Gray Text */
       margin-bottom: 20px;
     }
 
@@ -33,37 +33,49 @@
       text-align: center;
       max-width: 800px;
       margin: 0 auto;
+      background-color: #ffffff; /* White background for sections */
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); /* Card-like shadow */
     }
 
     /* Button and input styles */
     input, button {
       font-size: 1em;
       padding: 0.5em;
-      background-color: #8b6e5a; /* Warm Brown */
-      border: none;
+      background-color: #2f3337; /* Dark gray button */
+      border: 1px solid #d0d7de; /* Light border like GitHub buttons */
       border-radius: 5px;
-      color: #fff;
+      color: #ffffff;
     }
 
     button:hover, input:focus {
-      background-color: #7c5c47; /* Darker brown for hover/focus */
+      background-color: #3c4248; /* Slightly darker gray for hover/focus */
     }
 
     #message {
       white-space: pre-wrap;
       margin-top: 20px;
       display: none;
-      color: #000000; /* Black message text */
+      color: #24292f; /* Dark text color */
     }
 
     /* Custom styles for your page */
     #intro-text {
       padding: 20px;
-      /* Removed background color to make it blend with the page */
       text-align: center;
-      color: #000000; /* Black text */
+      color: #24292f; /* Dark text for intro */
       margin: 0 auto;
       max-width: 80%;
+    }
+
+    /* Link styling */
+    a {
+      color: #0366d6; /* GitHub blue */
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
   </style>
