@@ -11,7 +11,7 @@
   <style>
     body { font-family: Arial, sans-serif; padding: 2em; background: #f4f4f4; color: #333; }
     #message {
-      white-space: pre-wrap;  /* Allows white space and line breaks to be preserved */
+      white-space: pre-wrap;  /* Keeps all line breaks and spacing as in the text */
       margin-top: 20px;
       font-size: 1.2em;
       line-height: 1.5;
@@ -49,8 +49,13 @@
       audio.volume = 0.5; // Set volume to 50%
     };
 
-    const correctPassword = "My Champion"; // Change this if necessary
-    const fullMessage = `When I first saw you, it was not with the eyes alone.
+    const correctPassword = "My Champion"; // Correct password for reveal
+    const fullMessage = `🌸🤍🕯️Curiosity brought you here because what’s real within you longs! You came back chasing a feeling. You came for what lived between us.
+Here, my heart is spoken out, to thee alone.. Within abyss’s realm, the soul’s name I crave.?:
+
+•••••••••••
+
+When I first saw you, it was not with the eyes alone.
 There was something in that moment, something sacred. Though I had long abandoned the idea of such connections believing them to be illusions, distractions of the heart in that instant, I felt something awaken within me, something wordless and real.
 You stood there, dressed white, as though the world paused just to let you pass untouched. The dress did not make you fascinating rather, it revealed your aura. A stillness I craved.
 I knew then that whatever I actually deeply desire is not destined to remain with me. Such is the case I’ve known since youth. That whatever touches the soul must pass like a dream.
@@ -78,11 +83,11 @@ I will go on asking for you from the One who understands all longing.`;
 
       // Check if the entered password is correct
       if (entered === correctPassword) {
-        messageBox.innerText = fullMessage; // Set the full hidden message
+        messageBox.innerText = fullMessage; // Display full hidden message
         messageBox.style.display = "block"; // Make the message visible
       } else {
-        messageBox.innerText = "❌ Wrong password."; // Error message
-        messageBox.style.display = "block"; // Make the error message visible
+        messageBox.innerText = "❌ Wrong password."; // Error message if password is incorrect
+        messageBox.style.display = "block"; // Make error message visible
       }
     }
   </script>
