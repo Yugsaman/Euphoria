@@ -17,19 +17,19 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #ffffff; /* White background for a clean design */
-      color: #333333; /* Dark text for good readability */
+      background-color: #f5f5dc; /* Soft Beige background */
+      color: #800000; /* Dark Burgundy text */
       overflow-x: hidden; /* Prevent horizontal scrolling */
     }
 
     h1, h2 {
-      color: #003366; /* Navy blue titles */
+      color: #800000; /* Dark Burgundy titles */
       margin: 0 0 20px;
     }
 
     p {
       font-size: 18px;
-      color: #555555; /* Soft gray text */
+      color: #5f4b3d; /* Slightly lighter dark brown text */
       margin-bottom: 20px;
     }
 
@@ -61,18 +61,18 @@
       width: 100px;
       height: 100px;
       stroke-width: 5;
-      stroke: #003366;
+      stroke: #800000;
       fill: none;
     }
 
     /* Custom Scroll Trigger Section */
     .scroll-trigger-section {
-      background-color: #003366;
+      background-color: #800000;
       color: white;
     }
 
     .scroll-trigger-section h2 {
-      color: #F0F0F0;
+      color: #f5f5dc;
     }
 
     .scroll-trigger-section svg path {
@@ -84,19 +84,19 @@
     input, button {
       font-size: 1em;
       padding: 0.5em;
-      background-color: #4682B4; 
+      background-color: #800000; 
       border: none;
       border-radius: 5px;
       color: #fff;
     }
 
     button:hover, input:focus {
-      background-color: #5f9ea0;
+      background-color: #b30000;
     }
 
     h2, p {
       margin-bottom: 1em;
-      color: #D3D3D3;
+      color: #5f4b3d;
     }
 
     /* Specific Styling for Your Introductory Text */
@@ -105,7 +105,7 @@
       background-color: rgba(255, 255, 255, 0.8); /* Slight white background to make text more visible */
       border-radius: 10px;
       text-align: center;
-      color: #003366;
+      color: #800000;
       margin: 0 auto;
       max-width: 80%; /* Ensure it's readable on all screen sizes */
     }
@@ -199,6 +199,3 @@
       if (entered === correctPassword) {
         messageBox.innerText = hiddenMessage;
         messageBox.style.display = "block"; // Make sure it becomes visible
-      } else {
-        messageBox.innerText = "Incorrect password. Please try again.";
-       
