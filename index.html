@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>saman azeemi</title>
-
-  <!-- GSAP CDN -->
+  
+  <!-- GSAP CDN (removed, as no animation needed) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
 
-  <!-- ScrollTrigger Plugin CDN -->
+  <!-- ScrollTrigger Plugin CDN (removed) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
 
   <style>
@@ -17,19 +17,19 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #acb7ae; /* Barely Green background */
-      color: #82716e; /* Brown-shirt text color */
-      overflow-x: hidden;
+      background-color: #e4d7b9; /* Light Beige Background */
+      color: #4f3b31; /* Dark Brown Text */
+      overflow-x: hidden; /* Prevent horizontal scrolling */
     }
 
     h1, h2 {
-      color: #82716e; /* Brown-shirt titles */
+      color: #6a7d61; /* Dusty Green Titles */
       margin: 0 0 20px;
     }
 
     p {
       font-size: 18px;
-      color: #82716e; /* Brown-shirt text color */
+      color: #4f3b31; /* Dark Brown Text */
       margin-bottom: 20px;
     }
 
@@ -39,50 +39,47 @@
       text-align: center;
       max-width: 800px;
       margin: 0 auto;
-    }
-
-    /* Styling for the background and intro section */
-    #intro-text {
-      padding: 20px;
-      background-color: #e4decd; /* Tan Blonde background */
-      border-radius: 10px;
-      text-align: center;
-      color: #82716e; /* Brown-shirt text */
-      margin: 0 auto;
-      max-width: 80%;
-    }
-
-    /* Styling for the hidden message */
-    #message {
-      white-space: pre-wrap;
-      margin-top: 20px;
-      display: none;
-      color: #82716e;
-      padding: 20px;
-      background-color: #c2b490; /* Blondey background */
+      background-color: #f2f1e1; /* Light beige background for sections */
       border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    /* Input and Button Styling */
+    /* Button and input styles */
     input, button {
       font-size: 1em;
       padding: 0.5em;
-      background-color: #82716e;
+      background-color: #8b6e5a; /* Warm Brown */
       border: none;
       border-radius: 5px;
       color: #fff;
     }
 
     button:hover, input:focus {
-      background-color: #6f5c4a;
+      background-color: #7c5c47; /* Darker brown for hover/focus */
     }
+
+    #message {
+      white-space: pre-wrap;
+      margin-top: 20px;
+      display: none;
+      color: #4f3b31; /* Dark Brown for the message */
+    }
+
+    /* Custom styles for your page */
+    #intro-text {
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8); /* Light background for intro text */
+      border-radius: 10px;
+      text-align: center;
+      color: #6a7d61; /* Dusty Green Text */
+      margin: 0 auto;
+      max-width: 80%;
+    }
+
   </style>
 </head>
 
 <body>
 
-  <!-- Intro Text Section -->
   <div id="intro-text">
     <h2>🌸🤍🕯️ Curiosity brought you here! You came back chasing a feeling, what lived between us.</h2>
     <p>Here, my heart is spoken out, to thee alone.., You are my.?.:</p>
@@ -94,26 +91,12 @@
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Password Input and Button -->
   <input type="password" id="password" placeholder="Enter password" aria-label="Enter password" />
   <button onclick="checkPassword()">Reveal</button>
 
   <!-- Hidden Message Box -->
   <div id="message"></div>
 
-  <!-- Sections Content -->
-  <div class="section" id="section-1">
-    <h2>Section 1: Scroll-triggered Animation</h2>
-    <p>As you scroll down, you'll see the text animate into view.</p>
-  </div>
-
-  <div class="section" id="scrollTriggerRect">
-    <h2>SVG Animation On Scroll</h2>
-    <svg>
-      <path class="arrow-trim-1" d="M10,10 L90,90" />
-      <path class="arrow-trim-2" d="M10,90 L90,10" />
-    </svg>
-  </div>
   <script>
     // Password Logic
     const correctPassword = "Champion";
@@ -146,9 +129,9 @@
 
       if (entered === correctPassword) {
         messageBox.innerText = hiddenMessage;
-        messageBox.style.display = "block"; // Make the hidden message box visible
+        messageBox.style.display = "block";
       } else {
-        messageBox.innerText = "Incorrect password. Please try again.";
+        messageBox.innerText = "❌ Wrong password.";
         messageBox.style.display = "block";
       }
     }
