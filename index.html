@@ -28,14 +28,14 @@
 
     /* Reveal Tab Styling */
     .reveal-tab {
-      cursor: pointer;
+      cursor: pointer; /* Cursor changes to hand on hover */
       color: #0366d6;
       text-decoration: underline;
       margin-top: 20px;
     }
 
     .reveal-tab:hover {
-      cursor: pointer;
+      cursor: pointer; /* Ensure cursor is hand on hover */
       text-decoration: none;
     }
 
@@ -87,9 +87,6 @@
   <!-- Hidden Message Box -->
   <div id="message"></div>
 
-  <!-- Reveal Tab -->
-  <div class="reveal-tab" onclick="revealMessage()">Click to reveal the secret message</div>
-
   <script>
     // Password Logic
     const correctPassword = "Champion";
@@ -125,7 +122,7 @@
         messageBox.innerText = hiddenMessage;
         messageBox.style.display = "block";
       } else {
-        messageBox.innerText = "❌ Wrong password.";
+        messageBox.innerText = "nah !";
         messageBox.style.display = "block";
       }
     }
