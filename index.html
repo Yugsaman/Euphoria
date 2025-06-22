@@ -4,40 +4,65 @@
   <meta charset="UTF-8" />
   <title>saman azeemi</title> <!-- Updated title -->
   <style>
+    /* Body styling: soft background, clean font */
     body {
-      font-family: 'Georgia', serif; /* Romantic, elegant font */
+      font-family: 'Inter', sans-serif; /* Modern, clean font */
       padding: 2em;
-      background: #B0E0E6; /* Soft powder blue background */
-      color: #333; /* Dark grey for text for readability */
+      background: #f7f7f7; /* Light grayish pastel background */
+      color: #333; /* Dark gray text for readability */
+      margin: 0;
       line-height: 1.6;
     }
-    #message {
-      white-space: pre-wrap;
-      margin-top: 20px;
-      display: none;
-      color: #333; /* Dark grey text color for the hidden message */
+    
+    /* Heading style */
+    h2 {
+      font-size: 2.2em;
+      color: #444;
+      margin-bottom: 0.8em;
     }
+    
+    /* Paragraph styling */
+    p {
+      font-size: 1.1em;
+      color: #666;
+      margin-bottom: 1.5em;
+    }
+    
+    /* Input & button styles */
     input, button {
       font-size: 1em;
-      padding: 0.5em;
-      background-color: #4682B4; /* Steel blue for input and button */
+      padding: 0.8em 1.2em;
+      margin-top: 1em;
       border: none;
-      border-radius: 5px;
-      color: #fff; /* White text inside button/input */
+      border-radius: 8px;
+      background-color: #f0f0f0; /* Light background for inputs */
+      color: #333;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
+
+    /* Button hover effect */
     button:hover, input:focus {
-      background-color: #5f9ea0; /* Slightly lighter steel blue when hovered or focused */
+      background-color: #ddd; /* Light gray background on hover/focus */
     }
-    h2, p {
-      margin-bottom: 1em;
-      color: #fff; /* White text for headings for contrast */
+    
+    /* Hidden message box */
+    #message {
+      margin-top: 1em;
+      padding: 1.5em;
+      background-color: #f5f5f5; /* Light background for the message box */
+      color: #444; /* Darker gray text for message */
+      border-radius: 8px;
+      display: none;
     }
-    h2 {
-      font-family: 'Garamond', serif; /* Elegant serif font for title */
-      font-size: 1.8em;
-    }
-    p {
-      font-size: 1.2em;
+    
+    /* Audio controls customization (optional) */
+    audio {
+      margin-top: 2em;
+      width: 100%;
+      max-width: 300px;
+      display: block;
+      margin: 0 auto;
     }
   </style>
 </head>
@@ -45,9 +70,9 @@
   <h2>🌸🤍🕯️ Curiosity brought you here because what’s real within you longs! You came back chasing a feeling. You came for what lived between us.</h2>
   <p>Here, my heart is spoken out, to thee alone.. Within abyss’s realm, the soul’s name I crave.?.:</p>
 
-  <!-- Audio Player with Autoplay, Muted, and No Controls -->
+  <!-- Audio Player with Autoplay, Loop, and No Controls -->
   <audio id="backgroundMusic" autoplay loop muted>
-    <source src="echo.mp3" type="audio/mp3"> <!-- Ensure file path is correct -->
+    <source src="echo.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 
