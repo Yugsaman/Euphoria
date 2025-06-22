@@ -5,7 +5,6 @@
   <meta name="google-site-verification" content="8klsQdDYsya9oM66QA13hiGSEIj3RIBQDtsax6iHrFw" />
   <meta charset="UTF-8" />
   <title>samanazeemi</title>
-  <!-- SEO Meta Tags -->
   <meta name="robots" content="index, follow">
   <meta name="description" content="A beautiful portfolio of Saman Azeemi's work, thoughts, and creations.">
   <meta name="keywords" content="Saman Azeemi, portfolio, blog, GitHub Pages">
@@ -17,11 +16,14 @@
   </style>
 </head>
 <body>
-  <!-- Add background music with autoplay & loop -->
-  <audio id="background-music" autoplay loop>
+  <!-- Add background music with autoplay & loop, but we will control play manually -->
+  <audio id="background-music" loop>
       <source src="echo.mp3" type="audio/mp3">
       Your browser does not support the audio element.
   </audio>
+
+  <!-- Button to manually play the music -->
+  <button onclick="playAudio()">Play Music</button>
 
   <h2>🌸🤍🕯️Curiosity brought you here because what’s real within you longs! You came back chasing a feeling. You came for what lived between us.</h2>
   <p>Here, my heart is spoken out, to thee alone.. Within abyss’s realm, the soul’s name I crave.?:</p>
@@ -31,14 +33,27 @@
   <div id="message"></div>
 
   <script>
-    // Set the background music volume after the page loads
-    window.onload = function() {
+    function playAudio() {
       var audio = document.getElementById("background-music");
-      audio.volume = 0.1; // Set volume to 10% so it's not too loud
-    };
+      audio.play();
+    }
 
     const correctPassword = "My Champion"; // change this
     const hiddenMessage = `When I first saw you, it was not with the eyes alone.
-There was something in that moment, something sacred...
-When I first saw you, it was not with the eyes alone.
-Though I had long abandoned the idea of such connections believing the
+There was something in that moment, something sacred... 
+<!-- Your long hidden message here -->`;
+
+    function checkPassword() {
+      const entered = document.getElementById("password").value;
+      const messageBox = document.getElementById("message");
+      if (entered === correctPassword) {
+        messageBox.innerText = hiddenMessage;
+        messageBox.style.display = "block";
+      } else {
+        messageBox.innerText = "❌ Wrong password.";
+        messageBox.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
