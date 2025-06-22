@@ -17,13 +17,10 @@
 </head>
 <body>
   <!-- Add background music with autoplay & loop, but we will control play manually -->
-  <audio id="background-music" loop>
+  <audio id="background-music" autoplay loop>
       <source src="echo.mp3" type="audio/mp3">
       Your browser does not support the audio element.
   </audio>
-
-  <!-- Button to manually play the music -->
-  <button onclick="playAudio()">Play Music</button>
 
   <h2>🌸🤍🕯️Curiosity brought you here because what’s real within you longs! You came back chasing a feeling. You came for what lived between us.</h2>
   <p>Here, my heart is spoken out, to thee alone.. Within abyss’s realm, the soul’s name I crave.?:</p>
@@ -33,12 +30,18 @@
   <div id="message"></div>
 
   <script>
-    function playAudio() {
+    // Set volume to a low level once the page loads (optional)
+    window.onload = function() {
       var audio = document.getElementById("background-music");
-      audio.play();
-    }
+      audio.volume = 0.1;  // Set to 10% of full volume (optional)
+      audio.play().then(() => {
+        console.log("Music is playing!");
+      }).catch((error) => {
+        console.error("Error playing the music:", error);
+      });
+    };
 
-    const correctPassword = "My Champion"; // change this
+    const correctPassword = "My Champion"; // Change this password as needed
     const hiddenMessage = `When I first saw you, it was not with the eyes alone.
 There was something in that moment, something sacred... 
 <!-- Your long hidden message here -->`;
