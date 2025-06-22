@@ -46,42 +46,34 @@
       border: 1px solid #d0d7de; /* Light border like GitHub buttons */
       border-radius: 5px;
       color: #ffffff;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
-    button:hover, input:focus {
+    button:hover {
       background-color: #3c4248; /* Slightly darker gray for hover/focus */
+      transform: scale(1.05); /* Slightly increase size */
     }
 
+    /* Hidden Message Animation */
     #message {
-      white-space: pre-wrap;
-      margin-top: 20px;
       display: none;
-      color: #24292f; /* Dark text color */
-      max-width: 80%; /* Max width of message */
-      margin: 0 auto; /* Center the message box */
-      margin-left: 10%; /* Shift message slightly to the right */
-      text-align: left; /* Align text to the left */
-      padding: 20px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #message.show {
+      display: block;
+      opacity: 1;
     }
 
     /* Custom styles for your page */
     #intro-text {
       padding: 20px;
       text-align: center;
-      color: #24292f; /* Dark text for intro */
+      color: #24292f;
       margin: 0 auto;
       max-width: 80%;
-      margin-left: 10%; /* Adds margin to the left, pushes text a bit to the right */
-    }
-
-    /* Link styling */
-    a {
-      color: #0366d6; /* GitHub blue */
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
     }
 
   </style>
@@ -138,10 +130,10 @@
 
       if (entered === correctPassword) {
         messageBox.innerText = hiddenMessage;
-        messageBox.style.display = "block";
+        messageBox.classList.add("show"); // Trigger message reveal animation
       } else {
         messageBox.innerText = "❌ Wrong password.";
-        messageBox.style.display = "block";
+        messageBox.classList.add("show"); // Trigger error message reveal animation
       }
     }
   </script>
