@@ -46,7 +46,7 @@
       border: 1px solid #d0d7de; /* Light border like GitHub buttons */
       border-radius: 5px;
       color: #ffffff;
-      cursor: pointer;
+      cursor: pointer; /* Hand cursor to indicate it's clickable */
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
@@ -55,27 +55,35 @@
       transform: scale(1.05); /* Slightly increase size */
     }
 
-    /* Hidden Message Animation */
     #message {
+      white-space: pre-wrap;
+      margin-top: 20px;
       display: none;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    #message.show {
-      display: block;
-      opacity: 1;
+      color: #24292f; /* Dark text color */
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
 
     /* Custom styles for your page */
     #intro-text {
       padding: 20px;
       text-align: center;
-      color: #24292f;
+      color: #24292f; /* Dark text for intro */
       margin: 0 auto;
       max-width: 80%;
     }
 
+    /* Link styling */
+    a {
+      color: #0366d6; /* GitHub blue */
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -124,16 +132,17 @@
     And even if all else is lost to this world,
     I will go on asking for you from the One who understands all longing.`;
 
+
     function checkPassword() {
       const entered = document.getElementById("password").value;
       const messageBox = document.getElementById("message");
 
       if (entered === correctPassword) {
         messageBox.innerText = hiddenMessage;
-        messageBox.classList.add("show"); // Trigger message reveal animation
+        messageBox.style.display = "block";
       } else {
         messageBox.innerText = "❌ Wrong password.";
-        messageBox.classList.add("show"); // Trigger error message reveal animation
+        messageBox.style.display = "block";
       }
     }
   </script>
