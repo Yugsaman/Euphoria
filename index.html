@@ -14,12 +14,12 @@
   <p>Here, my heart is spoken out, to thee alone.. Within abyss’s realm, the soul’s name I crave.?.:</p>
 
   <!-- Audio Player -->
-  <audio id="backgroundMusic" autoplay loop>
-    <source src="echo.mp3" type="audio/mp3"> <!-- Updated music file -->
+  <audio id="backgroundMusic" autoplay loop controls>
+    <source src="echo.mp3" type="audio/mp3"> <!-- Make sure the file path is correct -->
     Your browser does not support the audio element.
   </audio>
 
-  <input type="password" id="password" placeholder="Enter password" />
+  <input type="password" id="password" placeholder="Enter password" aria-label="Enter password" />
   <button onclick="checkPassword()">Reveal</button>
 
   <div id="message"></div>
@@ -52,7 +52,9 @@ I will go on asking for you from the One who understands all longing.`;
 
     function checkPassword() {
       const entered = document.getElementById("password").value;
+      console.log(entered); // Debugging the entered password
       const messageBox = document.getElementById("message");
+
       if (entered === correctPassword) {
         messageBox.innerText = hiddenMessage;
         messageBox.style.display = "block";
