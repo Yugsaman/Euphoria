@@ -6,89 +6,58 @@
   <title>Saman Azeemi</title>
   
   <style>
-    /* General Body Styles */
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f6f8fa; /* Light gray background like GitHub */
-      color: #24292f; /* Dark gray text like GitHub */
-      overflow-x: hidden; /* Prevent horizontal scrolling */
+      background-color: #f6f8fa;
+      color: #24292f;
+      overflow-x: hidden;
     }
 
     h1, h2 {
-      color: #24292f; /* Dark Gray Titles */
+      color: #24292f;
       margin: 0 0 20px;
     }
 
     p {
       font-size: 18px;
-      color: #24292f; /* Dark Gray Text */
+      color: #24292f;
       margin-bottom: 20px;
     }
 
-    /* Section Styles */
-    .section {
-      padding: 60px 20px;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: #ffffff; /* White background for sections */
-      border-radius: 6px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); /* Card-like shadow */
-    }
-
-    /* Button and input styles */
-    input, button {
-      font-size: 1em;
-      padding: 0.5em;
-      background-color: #2f3337; /* Dark gray button */
-      border: 1px solid #d0d7de; /* Light border like GitHub buttons */
-      border-radius: 5px;
-      color: #ffffff;
-    }
-
-    button:hover, input:focus {
-      background-color: #3c4248; /* Slightly darker gray for hover/focus */
+    /* Reveal Tab Styling */
+    .reveal-tab {
+      cursor: pointer;
+      color: #0366d6;
+      text-decoration: underline;
+      margin-top: 20px;
     }
 
     #message {
       white-space: pre-wrap;
       margin-top: 20px;
       display: none;
-      color: #24292f; /* Dark text color */
+      color: #24292f;
       padding: 20px;
       background-color: #ffffff;
       border: 1px solid #d0d7de;
       border-radius: 6px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); /* Card-like shadow */
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
 
-    /* Custom styles for your page */
-    #intro-text {
-      padding: 20px;
-      text-align: center;
-      color: #24292f; /* Dark text for intro */
-      margin: 0 auto;
-      max-width: 80%;
+    /* Button and input styles */
+    input, button {
+      font-size: 1em;
+      padding: 0.5em;
+      background-color: #2f3337;
+      border: 1px solid #d0d7de;
+      border-radius: 5px;
+      color: #ffffff;
     }
 
-    /* Link styling */
-    a {
-      color: #0366d6; /* GitHub blue */
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Reveal Tab Styles */
-    .reveal-tab {
-      cursor: pointer; /* Change cursor to pointer when hovering */
-      color: #0366d6;
-      text-decoration: underline;
-      margin-top: 20px;
+    button:hover, input:focus {
+      background-color: #3c4248;
     }
   </style>
 </head>
@@ -101,7 +70,7 @@
   </div>
 
   <!-- Audio Player with Autoplay, Loop, and Volume Control -->
-  <audio id="backgroundMusic" autoplay loop>
+  <audio id="backgroundMusic" autoplay loop muted>
     <source src="https://samanazeemi.github.io/Saman/echo.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
@@ -113,46 +82,26 @@
   <!-- Hidden Message Box -->
   <div id="message"></div>
 
-  <!-- Reveal Tab with cursor change -->
+  <!-- Reveal Tab -->
   <div class="reveal-tab" onclick="revealMessage()">Click to reveal the secret message</div>
 
   <script>
     // Password Logic
     const correctPassword = "Champion";
     const hiddenMessage = `There was something in that moment, something sacred...
-    When I first saw you, it was not with the eyes alone.
-    There was something in that moment, something sacred. Though I had long abandoned the idea of such connections believing them to be illusions, distractions of the heart in that instant, I felt something awaken within me, something wordless and real.
-    You stood there, dressed white, as though the world paused just to let you pass untouched. The dress did not make you fascinating rather, it revealed your aura. A stillness I craved.
-    I knew then that whatever I actually deeply desire is not destined to remain with me. Such is the case I’ve known since youth. that whatever touches the soul must pass like a dream.
-    I stepped forward, not with hope, but with curiosity. Yet almost at once, I recognized the silent decree that we would not walk together under the sun of this world.
-    Still, I could not look away.
-    Strange it is you cause me pain, and yet your very presence soothes it. I do not understand this paradox, only that it is real.
-    Each morning, I rise, yours is the first thought that drifts across.
-    In every moment of truth when life becomes more than noise and movement, you appear not as a memory but as a presence. 
-    I know we cannot be together here. With these rules and illusions. But in the realm of the Eternal where there is no separation, I have asked for you. I have seen us there, side by side, heads bowed in front of Allah as a piece into two of one soul.
-    Little do you know what I carry for you, you would understand.
-    I carry many responsibilities toward my parents, my brothers, my sisters and I embrace them with reverence. But love… love is something different.
-    It is not duty. It is not comfort. It is the silent willingness to disappear into someone else’s presence without fear. And in this world, among the people I have known, there are whom I would offer my life without question: my Sheikh my huzur, my Father my Abbu Jee… and you.
-    I speak to God of you daily.
-    In my moments, I imagine you sitting beside me as a dopamine. I do not speak easily to others but to you in silence, I tell everything.
-    I imagine a place beyond all impurity, where we speak as souls, not as strangers.
-    No lifetime could ever be long enough to express this love. Even a thousand shared days could not reveal the quiet peace I imagine beside you.
-    You may never know how much I love you.
-    But know this you are always in my prayers
-    And even if all else is lost to this world,
-    I will go on asking for you from the One who understands all longing.`;
-
-    // Check the entered password
+    ...`;
+    
     function checkPassword() {
       const entered = document.getElementById("password").value;
       const messageBox = document.getElementById("message");
 
+      console.log(`Entered password: ${entered}`);  // Debugging line to check entered password
       if (entered === correctPassword) {
         messageBox.innerText = hiddenMessage;
-        messageBox.style.display = "block"; // Show the hidden message
+        messageBox.style.display = "block";
       } else {
         messageBox.innerText = "❌ Wrong password.";
-        messageBox.style.display = "block"; // Show wrong password message
+        messageBox.style.display = "block";
       }
     }
 
