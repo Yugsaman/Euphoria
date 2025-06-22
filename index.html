@@ -37,8 +37,8 @@
   <h2>🌸🤍🕯️ Curiosity brought you here because what’s real within you longs! You came back chasing a feeling. You came for what lived between us.</h2>
   <p>Here, my heart is spoken out, to thee alone.. Within abyss’s realm, the soul’s name I crave.?.:</p>
 
-  <!-- Audio Player with Autoplay, Loop, and Volume Control -->
-  <audio id="backgroundMusic" autoplay loop controls>
+  <!-- Autoplay, Muted, and No Controls -->
+  <audio id="backgroundMusic" autoplay loop muted>
     <source src="echo.mp3" type="audio/mp3"> <!-- Ensure file path is correct -->
     Your browser does not support the audio element.
   </audio>
@@ -83,6 +83,9 @@ I will go on asking for you from the One who understands all longing.`;
       if (entered === correctPassword) {
         messageBox.innerText = hiddenMessage;
         messageBox.style.display = "block";
+        
+        // Unmute the audio after password is correct
+        document.getElementById("backgroundMusic").muted = false;
       } else {
         messageBox.innerText = "❌ Wrong password.";
         messageBox.style.display = "block";
