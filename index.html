@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta name="google-site-verification" content="e3tNGJt8_gRFmamLPrT4muEFLVZBhn4ZLcG3QD4zWRY" />
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saman Azeemi</title>
@@ -29,7 +28,7 @@
       margin-bottom: 20px;
     }
 
-    input, button {
+    input {
       font-size: 1em;
       padding: 0.5em;
       background-color: #f6f8fa;
@@ -37,11 +36,34 @@
       border-radius: 5px;
       color: #24292f;
       margin-top: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .reveal-tab {
+      display: inline-block;
+      font-family: Georgia, serif;
+      font-size: 0.95rem;
+      color: #444;
+      text-decoration: none;
+      padding: 8px 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: transparent;
+      transition: background 0.3s ease, color 0.3s ease;
+      margin-top: 20px;
     }
 
     .reveal-tab:hover {
+      background-color: #eee;
+      color: #000;
       cursor: pointer;
-      text-decoration: underline;
+      text-decoration: none;
+    }
+
+    .reveal-container {
+      text-align: center;
     }
 
     #message {
@@ -73,7 +95,7 @@
   <div class="container">
     <div id="intro-text">
       <h2>🌸🤍🕯️ Curiosity brought you here! because something in you remembered, and stayed quietly, deep inside.</h2>
-      <p>Hear it anew,  if you are my.?.</p>
+      <p>Hear it anew, if you are my.?.</p>
     </div>
 
     <audio id="audio-player" loop>
@@ -82,7 +104,10 @@
     </audio>
 
     <input type="password" id="password" placeholder="Enter password" aria-label="Enter password" />
-    <button class="reveal-tab" onclick="checkPassword()">Reveal</button>
+
+    <div class="reveal-container">
+      <button class="reveal-tab" onclick="checkPassword()">Reveal Message</button>
+    </div>
 
     <div id="message"></div>
   </div>
@@ -90,25 +115,25 @@
   <script>
     const correctPassword = "Champion";
     const hiddenMessage = `There was something in that moment, something sacred...
-    When I first saw you, it was not with the eyes alone.
-    There was something in that moment, something sacred. Though I had long abandoned the idea of such connections believing them to be illusions, distractions of the heart in that instant, I felt something awaken within me, something wordless and real.
-    You stood there, dressed white, as though the world paused just to let you pass untouched. The dress did not make you fascinating rather, it revealed your aura. A stillness I craved.
-    I knew then that whatever I actually deeply desire is not destined to remain with me. Such is the case I’ve known since youth. that whatever touches the soul must pass like a dream.
-    I stepped forward, not with hope, but with curiosity. Yet almost at once, I recognized the silent decree that we would not walk together under the sun of this world.
-    Still, I could not look away.
-    Strange it is you cause me pain, and yet your very presence soothes it. I do not understand this paradox, only that it is real.
-    Each morning, I rise, yours is the first thought that drifts across.
-    In every moment of truth when life becomes more than noise and movement, you appear not as a memory but as a presence. 
-    I know we cannot be together here. With these rules and illusions. But in the realm of the Eternal where there is no separation, I have asked for you. I have seen us there, side by side, heads bowed in front of Allah as a piece into two of one soul.
-    Little do you know what I carry for you, you would understand.
-    I carry many responsibilities toward my parents, my brothers, my sisters and I embrace them with reverence. But love… love is something different.
-    It is not duty. It is not comfort. It is the silent willingness to disappear into someone else’s presence without fear. And in this world, among the people I have known, there are whom I would offer my life without question: my Sheikh my huzur, my Father my Abbu Jee… and you.
-    I speak to God of you daily.
-    In my moments, I imagine you sitting beside me as a dopamine. I do not speak easily to others but to you in silence, I tell everything.
-    I imagine a place beyond all impurity, where we speak as souls, not as strangers.
-    No lifetime could ever be long enough to express this love. Even a thousand shared days could not reveal the quiet peace I imagine beside you.
-    You may never know how much I love you.
-    But know this you are always in my prayers.`;
+When I first saw you, it was not with the eyes alone.
+There was something in that moment, something sacred. Though I had long abandoned the idea of such connections believing them to be illusions, distractions of the heart in that instant, I felt something awaken within me, something wordless and real.
+You stood there, dressed white, as though the world paused just to let you pass untouched. The dress did not make you fascinating rather, it revealed your aura. A stillness I craved.
+I knew then that whatever I actually deeply desire is not destined to remain with me. Such is the case I’ve known since youth. that whatever touches the soul must pass like a dream.
+I stepped forward, not with hope, but with curiosity. Yet almost at once, I recognized the silent decree that we would not walk together under the sun of this world.
+Still, I could not look away.
+Strange it is you cause me pain, and yet your very presence soothes it. I do not understand this paradox, only that it is real.
+Each morning, I rise, yours is the first thought that drifts across.
+In every moment of truth when life becomes more than noise and movement, you appear not as a memory but as a presence. 
+I know we cannot be together here. With these rules and illusions. But in the realm of the Eternal where there is no separation, I have asked for you. I have seen us there, side by side, heads bowed in front of Allah as a piece into two of one soul.
+Little do you know what I carry for you, you would understand.
+I carry many responsibilities toward my parents, my brothers, my sisters and I embrace them with reverence. But love… love is something different.
+It is not duty. It is not comfort. It is the silent willingness to disappear into someone else’s presence without fear. And in this world, among the people I have known, there are whom I would offer my life without question: my Sheikh my huzur, my Father my Abbu Jee… and you.
+I speak to God of you daily.
+In my moments, I imagine you sitting beside me as a dopamine. I do not speak easily to others but to you in silence, I tell everything.
+I imagine a place beyond all impurity, where we speak as souls, not as strangers.
+No lifetime could ever be long enough to express this love. Even a thousand shared days could not reveal the quiet peace I imagine beside you.
+You may never know how much I love you.
+But know this you are always in my prayers.`;
 
     function checkPassword() {
       const entered = document.getElementById("password").value;
