@@ -27,7 +27,6 @@
       margin-bottom: 20px;
     }
 
-    /* Password input and Reveal button */
     input, button {
       font-size: 1em;
       padding: 0.5em;
@@ -38,10 +37,9 @@
       margin-top: 10px;
     }
 
-    /* Reveal Button Hover Effect */
     .reveal-tab:hover {
-      cursor: pointer; /* Changes the cursor when hovering */
-      text-decoration: underline; /* Optional underline effect */
+      cursor: pointer;
+      text-decoration: underline;
     }
 
     #message {
@@ -55,13 +53,11 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
 
-    /* Audio player styling */
     audio {
       width: 100%;
       margin-top: 20px;
     }
 
-    /* Optional styling for the container */
     .container {
       max-width: 800px;
       margin: 0 auto;
@@ -72,20 +68,18 @@
 
 <body>
 
-  <!-- Main Container -->
   <div class="container">
     <div id="intro-text">
       <h2>🌸🤍🕯️ Curiosity brought you here! You came back chasing a feeling, what lived between us.</h2>
       <p>Here, my heart is spoken out, to thee alone.., You are my.?.:</p>
     </div>
 
-    <!-- Audio Tag for Autoplay and Loop -->
-    <audio id="audio-player" autoplay loop>
+    <!-- Audio Tag (no autoplay to avoid browser blocking) -->
+    <audio id="audio-player" loop>
       <source src="echo.mp3" type="audio/mp3">
       Your browser does not support the audio element.
     </audio>
 
-    <!-- Password Input and Reveal Button -->
     <input type="password" id="password" placeholder="Enter password" aria-label="Enter password" />
     <button class="reveal-tab" onclick="checkPassword()">Reveal</button>
 
@@ -93,7 +87,6 @@
   </div>
 
   <script>
-    // Password Logic
     const correctPassword = "Champion";
     const hiddenMessage = `There was something in that moment, something sacred...
     When I first saw you, it was not with the eyes alone.
@@ -123,8 +116,13 @@
       if (entered === correctPassword) {
         messageBox.innerText = hiddenMessage;
         messageBox.style.display = "block";
+
+        const audio = document.getElementById("audio-player");
+        audio.play().catch((e) => {
+          console.log("Audio play failed:", e);
+        });
       } else {
-        messageBox.innerText = "nah!"; // Display "nah!" on wrong password
+        messageBox.innerText = "nah!";
         messageBox.style.display = "block";
       }
     }
