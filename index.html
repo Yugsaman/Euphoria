@@ -58,27 +58,17 @@
       border: 1px solid #d0d7de;
       border-radius: 6px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      text-align: center;  /* Center the text */
+      font-size: 16px;
+      color: #24292f;
     }
-    .clickable-always {
-      color: #1E90FF;
-      cursor: pointer;
-      text-decoration: underline;
-    }
-    #image-reveal {
-      display: none;
-      text-align: center;
-      margin-top: 20px;
-    }
-    #image-reveal img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    #image-reveal p {
-      font-style: italic;
-      color: #666;
-      margin-bottom: 10px;
+    .always-text {
+      color: #1E90FF;  /* Light blue */
+      font-weight: normal; /* Not bold */
+      cursor: default; /* No pointer cursor */
+      text-decoration: none; /* No underline */
+      display: inline-block;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -98,11 +88,6 @@
     </div>
 
     <div id="message"></div>
-
-    <div id="image-reveal">
-      <p>Only you would know what this means.</p>
-      <img src="images/memory_1a2b3c.jpg" alt="Hidden Memory">
-    </div>
   </div>
 
   <script>
@@ -128,7 +113,7 @@ I would never compare myself to anyone’s father, but one thing I know for sure
 I remembered telling you that everything about you, I Loved. and to be honest, No matter how hard I tried, I couldn’t stop. It’s like a force of nature, something beyond my control. I just wanted you to know that there is someone out there who loves you without expectation, without return, without condition.
 
 Even if you never know the full depth of this love, know this: you are in my prayers, and in my heart.
-<span class="clickable-always" onclick="showImage()">Always!.</span>`;
+<span class="always-text">Always!.</span>`;
 
     function checkPassword() {
       const entered = document.getElementById("password").value;
@@ -145,10 +130,6 @@ Even if you never know the full depth of this love, know this: you are in my pra
         messageBox.innerText = "Nah! In all CAPS, Trust Your Inner Voice.";
         messageBox.style.display = "block";
       }
-    }
-
-    function showImage() {
-      document.getElementById("image-reveal").style.display = "block";
     }
   </script>
 </body>
