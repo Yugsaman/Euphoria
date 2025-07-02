@@ -121,24 +121,29 @@ Even if you never know the full depth of this love, know this: you are in my pra
 <span class="always-text">Always!.</span>`;
 
     function checkPassword() {
-      const entered = document.getElementById("password").value;
-      const messageBox = document.getElementById("message");
-      const passwordField = document.getElementById("password");
-      const audio = document.getElementById("audio-player");
+  const entered = document.getElementById("password").value;
+  const messageBox = document.getElementById("message");
+  const passwordField = document.getElementById("password");
+  const revealButton = document.querySelector(".reveal-tab");
+  const audio = document.getElementById("audio-player");
 
-      if (entered === correctPassword) {
-        messageBox.innerHTML = fullMessage;
-        messageBox.style.display = "block";
-        audio.volume = 0.3;
-        audio.play().catch(() => {});
-        passwordField.style.display = "none";
-        document.getElementById("audio-player").play().catch(() => {});
-        passwordField.style.display = "none";
-      } else {
-        messageBox.innerText = "Nah! In all CAPS, Trust Your Inner Voice.";
-        messageBox.style.display = "block";
-      }
-    }
+  if (entered === correctPassword) {
+    messageBox.innerHTML = fullMessage;
+    messageBox.style.display = "block";
+
+    audio.volume = 0.2; // softer background
+    audio.play().catch((err) => {
+      console.error("Autoplay error:", err);
+    });
+
+    passwordField.style.display = "none";
+    revealButton.style.display = "none";
+  } else {
+    messageBox.innerText = "Nah! In all CAPS, Trust Your Inner Voice.";
+    messageBox.style.display = "block";
+  }
+}
+
   </script>
 </body>
 </html>
