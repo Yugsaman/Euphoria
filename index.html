@@ -122,6 +122,9 @@ When I first saw you, it wasn’t just with my eyes. It was as if the world itse
       const entered = document.getElementById("password").value.trim();
       const messageBox = document.getElementById("message");
 
+      // Debugging alert to check entered password
+      alert('Password entered: ' + entered);
+
       // Check if the password entered is correct
       if (entered === correctPassword) {
         messageBox.style.display = "block"; // Show the hidden message
@@ -134,5 +137,3 @@ When I first saw you, it wasn’t just with my eyes. It was as if the world itse
 </body>
 
 </html>
-
-       
