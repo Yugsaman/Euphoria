@@ -1,46 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="e3tNGJt8_gRFmamLPrT4muEFLVZBhn4ZLcG3QD4zWRY" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saman Azeemi</title>
-
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f6f8fa; 
+      background-color: #f6f8fa;
       color: #24292f;
       overflow-x: hidden;
       line-height: 1.5;
     }
-
-    h1, h2 {
-      color: #24292f;
-      margin-bottom: 20px;
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
     }
-
-    p {
-      font-size: 16px;
-      color: #24292f;
-      margin-bottom: 20px;
-    }
-
-    input {
-      font-size: 1em;
-      padding: 0.5em;
-      background-color: #f6f8fa;
-      border: 1px solid #d0d7de;
-      border-radius: 5px;
-      color: #24292f;
-      margin-top: 10px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
     .reveal-tab {
       display: inline-block;
       font-family: Georgia, serif;
@@ -55,51 +33,59 @@
       margin-top: 20px;
       cursor: pointer;
     }
-
     .reveal-tab:hover {
       background-color: #eee;
       color: #000;
-      text-decoration: none;
     }
-
-    .reveal-container {
-      text-align: center;
+    input {
+      font-size: 1em;
+      padding: 0.5em;
+      background-color: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 5px;
+      color: #24292f;
+      margin-top: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
-
     #message {
       white-space: pre-wrap;
       margin-top: 20px;
       display: none;
       padding: 20px;
-      background-color: #f6f8fa; 
+      background-color: #f6f8fa;
       border: 1px solid #d0d7de;
       border-radius: 6px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      max-height: none; /* Remove the max-height */
-      overflow: visible; /* Allow the box to expand freely */
     }
-
-    audio {
-      width: 100%;
+    .clickable-always {
+      color: #1E90FF;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    #image-reveal {
+      display: none;
+      text-align: center;
       margin-top: 20px;
     }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
+    #image-reveal img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-
+    #image-reveal p {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
-
 <body>
-
   <div class="container">
-    <div id="intro-text">
-      <h2>🌸🤍🕯️ Curiosity brought you here! because something in you remembered, and stayed quietly, deep inside.</h2>
-      <p>Hear it anew, if you are my.?.</p>
-    </div>
+    <h2>🌸🤍🕯️ Curiosity brought you here! because something in you remembered, and stayed quietly, deep inside.</h2>
+    <p>Hear it anew, if you are my.?.</p>
 
     <audio id="audio-player" loop>
       <source src="echo.mp3" type="audio/mp3">
@@ -107,17 +93,21 @@
     </audio>
 
     <input type="password" id="password" placeholder="Enter password" aria-label="Enter password" />
-
     <div class="reveal-container">
       <button class="reveal-tab" onclick="checkPassword()">Reveal Message</button>
     </div>
 
     <div id="message"></div>
+
+    <div id="image-reveal">
+      <p>Only you would know what this means.</p>
+      <img src="images/memory_1a2b3c.jpg" alt="Hidden Memory">
+    </div>
   </div>
 
   <script>
     const correctPassword = "CHAMPION";
-    const hiddenMessage = `Just something honest, hidden in plain sight, for you to know.
+    const fullMessage = `Just something honest, hidden in plain sight, for you to know.
 
 When I first saw you, it wasn’t just with my eyes. It was as if the world itself paused, and in that stillness, something sacred awakened within me. It was a moment that couldn’t be explained, a silent connection that I had long since abandoned believing in. But when I saw you, I felt something real, something deep.
 You stood there, dressed in white, and in that instant, everything else seemed to disappear. It wasn’t just the dress, but the way it unveiled, your quiet grace.
@@ -138,9 +128,7 @@ I would never compare myself to anyone’s father, but one thing I know for sure
 I remembered telling you that everything about you, I Loved. and to be honest, No matter how hard I tried, I couldn’t stop. It’s like a force of nature, something beyond my control. I just wanted you to know that there is someone out there who loves you without expectation, without return, without condition.
 
 Even if you never know the full depth of this love, know this: you are in my prayers, and in my heart.
-<span style="color: #1E90FF; font-weight: bold; display: inline-block; margin-top: 10px;">Always!.</span>
-
-`;
+<span class="clickable-always" onclick="showImage()">Always!.</span>`;
 
     function checkPassword() {
       const entered = document.getElementById("password").value;
@@ -148,22 +136,20 @@ Even if you never know the full depth of this love, know this: you are in my pra
       const passwordField = document.getElementById("password");
 
       if (entered === correctPassword) {
-        messageBox.innerHTML = hiddenMessage;
-        messageBox.style.display = "block"; // Show the message box
-        const audio = document.getElementById("audio-player");
-        audio.play().catch((e) => {
-          console.log("Audio play failed:", e);
-        });
-
-        // Hide the password input and button
+        messageBox.innerHTML = fullMessage;
+        messageBox.style.display = "block";
+        document.getElementById("audio-player").play().catch(() => {});
         passwordField.style.display = "none";
         document.querySelector(".reveal-tab").style.display = "none";
       } else {
         messageBox.innerText = "Nah! In all CAPS, Trust Your Inner Voice.";
-        messageBox.style.display = "block"; // Show the wrong message
+        messageBox.style.display = "block";
       }
     }
-  </script>
 
+    function showImage() {
+      document.getElementById("image-reveal").style.display = "block";
+    }
+  </script>
 </body>
 </html>
