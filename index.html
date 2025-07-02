@@ -11,7 +11,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f6f8fa;
+      background-color: #f6f8fa; 
       color: #24292f;
       overflow-x: hidden;
       line-height: 1.5;
@@ -71,10 +71,12 @@
       margin-top: 20px;
       display: none;
       padding: 20px;
-      background-color: #f6f8fa;
+      background-color: #f6f8fa; 
       border: 1px solid #d0d7de;
       border-radius: 6px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      max-height: 400px; /* Maximum height */
+      overflow-y: auto; /* Enable vertical scrolling */
     }
 
     audio {
@@ -113,27 +115,43 @@
   </div>
 
   <script>
-    const correctPassword = "CHAMPION"; // The correct password
+    const correctPassword = "CHAMPION";
     const hiddenMessage = `Just something honest, hidden in plain sight, for you to know.
 
-When I first saw you, it wasn’t just with my eyes. It was as if the world itself paused, and in that stillness, something sacred awakened within me... (continued hidden message)`;
+When I first saw you, it wasn’t just with my eyes. It was as if the world itself paused, and in that stillness, something sacred awakened within me. It was a moment that couldn’t be explained, a silent connection that I had long since abandoned believing in. But when I saw you, I felt it—something real, something deep.
+You stood there, dressed in white, and in that instant, everything else seemed to disappear. It wasn’t just the dress, but the way it unveiled your essence—your stillness, your quiet grace. It was as if the world was holding its breath just to allow you to pass by.
+I knew, in that moment, that whatever I truly desire is not destined to remain. I’ve always carried the belief that whatever touches the soul must eventually fade, like a fleeting dream. Yet, still, I stepped forward—not with hope, but with curiosity. And almost instantly, I felt the unspoken truth that we would not walk this life together. Still, I could not look away.
+It is strange, you know? How you cause me such longing and pain, yet, somehow, your mere presence has the power to soothe it. I don’t fully understand this paradox, but it’s real, and it lingers with me. Every morning, you are the first thought that comes to my mind. And when the world becomes more than just noise, when I experience moments of clarity, I see you—not as a memory, but as something alive, something present.
+
+I know we cannot be together here, bound by the limits of this world, but in the realm of the Eternal, where there is no separation, I’ve asked for you. I’ve imagined us there, side by side, heads bowed before Allah, two halves of one soul reunited.
+You may never know the depth of what I carry for you. I carry my responsibilities—toward my family, my loved ones, with reverence. But love... love is something different. It’s not duty. It’s not comfort. It’s the quiet willingness to lose yourself in someone else’s presence, to become one with them, without fear. And in this life, there are only a few whom I would give my life for—my Sheikh, my father, my Abbu Jee... and you.
+In the stillness of my moments, I imagine you beside me, bringing a sense of calm and peace only you can. I don’t speak easily to others, but to you, in silence, I reveal everything. I imagine a place, beyond the impurities of this world, where we speak not as strangers but as souls, bound by a love unspoken yet understood.
+No lifetime could ever be enough to fully express this love. Even a thousand days shared would not reveal the quiet peace I imagine beside you.
+
+But let me say this: after meeting you, I realized how perfect you are in my eyes. Despite our few conversations, the light-hearted jokes, the serious talks, I remember them all. I remember you telling me your goal wasn’t entirely clear, but you were determined not to be dependent on anyone. I understood that day that you trust those you believe in completely, to make decisions for you—like choosing a product, with full confidence. That day, I understood—it wasn’t about dependence, but about trust, deep and unwavering trust.
+I remember that day you wore the yellow dress. It looked so beautiful on you that I couldn’t tear my eyes away. Your reaction was so sweet—shy and confused, all at once. It made my heart skip a beat. There was something in the way you carried yourself that drew me in deeper, something quiet, something gentle. I couldn’t stop thinking about it.
+I remember that moment when I spoke, and you just listened. I told you that you were my third, and I asked if I could ask Allah for you in the afterlife. You said, “Interesting,” and walked away. When you returned, your eyes were swollen, but you smiled, as if nothing had happened. In that brief, vulnerable moment, I saw a side of you that took my breath away—your strength, your grace, your depth. It was as though I could see the soul that lay beneath your quiet smile.
+I remembered watching you sleep. There’s something so peaceful about it—something so calming. Maybe it was the stillness, the way your messy hair fell across your face, or the way you seemed so effortlessly beautiful in those moments. It brought me a sense of calm I can’t explain. You used to call me a creeper for it, and now, I embrace it. I remember sitting next to you, playing with your hair while you slept, waiting for you to wake, then teasing you with the smell of Vicks right by your nose. Your reactions, always the cutest, always the funniest.
+I remember telling you that everything about you, I loved. No matter how hard I tried, I couldn’t stop. It’s like a force of nature, something beyond my control. I just wanted you to know that there is someone out there who loves you—without expectation, without return, without condition.
+Even if you never know the full depth of this love, know this: you are always in my prayers, and in my heart, always.`;
 
     function checkPassword() {
-      const entered = document.getElementById("password").value.trim();
+      const entered = document.getElementById("password").value;
       const messageBox = document.getElementById("message");
 
-      // Debugging alert to check entered password
-      alert('Password entered: ' + entered);
-
-      // Check if the password entered is correct
       if (entered === correctPassword) {
-        messageBox.style.display = "block"; // Show the hidden message
-        messageBox.innerText = hiddenMessage; // Insert the hidden message into the div
+        messageBox.innerText = hiddenMessage;
+        messageBox.style.display = "block"; // Show the message box
+        const audio = document.getElementById("audio-player");
+        audio.play().catch((e) => {
+          console.log("Audio play failed:", e);
+        });
       } else {
-        alert("Incorrect password, please try again."); // Alert if the password is incorrect
+        messageBox.innerText = "nah! in all CAPS, Trust Your Inner Voice.";
+        messageBox.style.display = "block"; // Show the wrong message
       }
     }
   </script>
-</body>
 
+</body>
 </html>
