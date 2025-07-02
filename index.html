@@ -75,8 +75,8 @@
       border: 1px solid #d0d7de;
       border-radius: 6px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      max-height: 400px; /* Maximum height */
-      overflow-y: auto; /* Enable vertical scrolling */
+      max-height: none; /* Remove the max-height */
+      overflow: visible; /* Allow the box to expand freely */
     }
 
     audio {
@@ -88,6 +88,10 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
+    }
+
+    .hidden {
+      display: none;
     }
   </style>
 </head>
@@ -138,6 +142,7 @@ Even if you never know the full depth of this love, know this: you are always in
     function checkPassword() {
       const entered = document.getElementById("password").value;
       const messageBox = document.getElementById("message");
+      const passwordField = document.getElementById("password");
 
       if (entered === correctPassword) {
         messageBox.innerText = hiddenMessage;
@@ -146,8 +151,12 @@ Even if you never know the full depth of this love, know this: you are always in
         audio.play().catch((e) => {
           console.log("Audio play failed:", e);
         });
+
+        // Hide the password input and button
+        passwordField.style.display = "none";
+        document.querySelector(".reveal-tab").style.display = "none";
       } else {
-        messageBox.innerText = "nah! in all CAPS, Trust Your Inner Voice.";
+        messageBox.innerText = "Nah! In all CAPS, Trust Your Inner Voice.";
         messageBox.style.display = "block"; // Show the wrong message
       }
     }
