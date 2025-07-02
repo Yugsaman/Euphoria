@@ -128,6 +128,7 @@ Even if you never know the full depth of this love, know this: you are in my pra
       if (entered === correctPassword) {
         messageBox.innerHTML = fullMessage;
         messageBox.style.display = "block";
+        audio.volume = 0.2;
         document.getElementById("audio-player").play().catch(() => {});
         passwordField.style.display = "none";
         document.querySelector(".reveal-tab").style.display = "none";
