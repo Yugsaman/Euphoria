@@ -150,7 +150,7 @@ Always!.
       const passwordField = document.getElementById("password");
 
       if (entered === correctPassword) {
-        messageBox.innerText = hiddenMessage;
+        messageBox.innerHTML = hiddenMessage;
         messageBox.style.display = "block"; // Show the message box
         const audio = document.getElementById("audio-player");
         audio.play().catch((e) => {
