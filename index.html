@@ -129,9 +129,10 @@ Even if you never know the full depth of this love, know this: you are in my pra
         messageBox.innerHTML = fullMessage;
         messageBox.style.display = "block";
         audio.volume = 0.3;
+        audio.play().catch(() => {});
+        passwordField.style.display = "none";
         document.getElementById("audio-player").play().catch(() => {});
         passwordField.style.display = "none";
-        document.querySelector(".reveal-tab").style.display = "none";
       } else {
         messageBox.innerText = "Nah! In all CAPS, Trust Your Inner Voice.";
         messageBox.style.display = "block";
