@@ -83,22 +83,17 @@
     }
 
     .wrong-password-message {
-      display: none;
+      display: block;
       font-size: 1rem;
-      font-family: inherit; /* same as "Hear it anew" */
+      font-family: inherit;
       color: #444;
       background-color: transparent;
       border: none;
       padding: 0;
       margin-top: 20px;
       text-align: center;
-      opacity: 0;
-      transition: opacity 0.6s ease-in-out;
-    }
-
-    .wrong-password-message.visible {
-      display: block;
       opacity: 1;
+      min-height: 30px;
     }
   </style>
 </head>
@@ -118,13 +113,12 @@
     </div>
 
     <div id="message"></div>
-    <div id="wrong-password-message" class="wrong-password-message">
-      Nah! In all CAPS, Trust Your Inner Voice.
-    </div>
+    <div id="wrong-password-message" class="wrong-password-message"></div>
   </div>
 
   <script>
     const correctPassword = "CHAMPION";
+    const wrongText = "Nah! In all CAPS, Trust Your Inner Voice.";
     const fullMessage = `Just something honest, hidden in plain sight, for you to know.
 
 When I first saw you, it wasn’t just with my eyes. It was as if the world itself paused, and in that stillness, something sacred awakened within me...
@@ -146,7 +140,7 @@ Even if you never know the full depth of this love, know this: you are in my pra
         messageBox.innerHTML = fullMessage;
         messageBox.style.display = "block";
         setTimeout(() => messageBox.style.opacity = 1, 10);
-        wrongMessage.classList.remove("visible");
+        wrongMessage.innerHTML = "";
         audio.volume = 0.09;
         audio.play().catch((err) => {
           console.error("Autoplay error:", err);
@@ -155,10 +149,27 @@ Even if you never know the full depth of this love, know this: you are in my pra
         passwordField.style.display = "none";
         revealButton.style.display = "none";
       } else {
-        wrongMessage.classList.add("visible");
+        animateWrongMessage(wrongText);
         messageBox.style.opacity = 0;
         messageBox.style.display = "none";
       }
+    }
+
+    function animateWrongMessage(text) {
+      const container = document.getElementById("wrong-password-message");
+      container.innerHTML = "";
+      const words = text.split(" ");
+      let index = 0;
+
+      function showNextWord() {
+        if (index < words.length) {
+          container.innerHTML += (index > 0 ? " " : "") + words[index];
+          index++;
+          setTimeout(showNextWord, 200); // adjust timing here (ms)
+        }
+      }
+
+      showNextWord();
     }
   </script>
 </body>
