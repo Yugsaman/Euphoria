@@ -156,11 +156,12 @@ There, without a word, In my heart, I’ve prayed, I’ve asked, and I’ve trus
       } else {
         messageBox.innerText = "Nah! In all CAPS, Trust Your Inner Voice.";
         messageBox.style.display = "block";
+        messageBox.classList.add("visible");
       }
+      }, 10);
     }
 
-    // Function to detect when the message becomes visible on scroll
-    function checkVisibility() {
+        function checkVisibility() {
       const messageBox = document.getElementById("message");
       const rect = messageBox.getBoundingClientRect();
 
