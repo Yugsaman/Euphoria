@@ -1,124 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Saman Azeemi</title>
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    margin: 0; padding: 0;
-    background-color: #f6f8fa;
-    color: #24292f;
-    overflow-x: hidden;
-    line-height: 1.5;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saman Azeemi</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f6f8fa;
+      color: #24292f;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
 
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-  h2 {
-    font-weight: normal;
-  }
+    h2 {
+      font-weight: normal;
+    }
 
-  p {
-    font-family: Georgia, serif;
-    font-size: 1.1rem;
-    color: #444;
-  }
+    p {
+      font-family: Georgia, serif;
+      font-size: 1.1rem;
+      color: #444;
+    }
 
-  .reveal-tab {
-    display: inline-block;
-    font-family: Georgia, serif;
-    font-size: 0.95rem;
-    color: #444;
-    text-decoration: none;
-    padding: 8px 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: transparent;
-    transition: background 0.3s ease, color 0.3s ease;
-    margin-top: 20px;
-    cursor: pointer;
-  }
+    .reveal-tab {
+      display: inline-block;
+      font-family: Georgia, serif;
+      font-size: 0.95rem;
+      color: #444;
+      text-decoration: none;
+      padding: 8px 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: transparent;
+      transition: background 0.3s ease, color 0.3s ease;
+      margin-top: 20px;
+      cursor: pointer;
+    }
 
-  .reveal-tab:hover {
-    background-color: #eee;
-    color: #000;
-  }
+    .reveal-tab:hover {
+      background-color: #eee;
+      color: #000;
+    }
 
-  input[type="password"] {
-    font-size: 1em;
-    padding: 0.5em;
-    background-color: #f6f8fa;
-    border: 1px solid #d0d7de;
-    border-radius: 5px;
-    color: #24292f;
-    margin-top: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    input[type="password"] {
+      font-size: 1em;
+      padding: 0.5em;
+      background-color: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 5px;
+      color: #24292f;
+      margin-top: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-  #message {
-    white-space: pre-wrap;
-    margin-top: 20px;
-    display: none;
-    padding: 20px;
-    background-color: #f6f8fa;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    text-align: left;
-    font-size: 16px;
-    color: #24292f;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
+    #message {
+      white-space: pre-wrap;
+      margin-top: 20px;
+      display: none;
+      padding: 20px;
+      background-color: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      text-align: left;
+      font-size: 16px;
+      color: #24292f;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
 
-  .always-text {
-    color: #228B22;
-    font-weight: normal;
-    cursor: default;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
-  }
+    .always-text {
+      color: #228B22;
+      font-weight: normal;
+      cursor: default;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
 
-  /* Blur-In Character Style */
-  #wrong-password-message {
-    font-family: Georgia, serif;
-    font-size: 1rem;
-    color: #444;
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin-top: 20px;
-    text-align: center;
-    min-height: 30px;
-    white-space: pre-wrap;
-  }
+    /* Gradual Fade-In Character Style */
+    #wrong-password-message {
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      color: #444;
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      margin-top: 20px;
+      text-align: center;
+      min-height: 30px;
+      white-space: pre-wrap;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
 
-  .blur-text {
-    display: inline-block;
-    opacity: 0;
-    filter: blur(4px);
-    transition: opacity 0.6s ease-out, filter 0.6s ease-out;
-    white-space: pre;
-  }
+    /* Gradual Fade-In Effect */
+    .fade-text {
+      display: inline-block;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
 
-  .blur-text.visible {
-    opacity: 1;
-    filter: blur(0);
-  }
-</style>
+    .fade-text.visible {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -170,7 +170,7 @@ After all this time, I hold you in two names: my Champion, my Yugen.
 Even if you never know the full depth of this love, know this: you are in my prayers, and in my heart.
 <span class="always-text">Always!.</span>`;
 
-  function animateBlurText(element, text, speed = 50) {
+  function animateFadeText(element, text, speed = 50) {
     element.innerHTML = "";
     let i = 0;
     const chars = [...text];
@@ -179,7 +179,7 @@ Even if you never know the full depth of this love, know this: you are in my pra
       if (i < chars.length) {
         const span = document.createElement("span");
         span.textContent = chars[i];
-        span.className = "blur-text";
+        span.className = "fade-text";
         element.appendChild(span);
         setTimeout(() => {
           span.classList.add("visible");
@@ -226,7 +226,7 @@ Even if you never know the full depth of this love, know this: you are in my pra
       revealButton.style.display = "inline-block";
 
       wrongPasswordBox.style.display = "block";
-      animateBlurText(wrongPasswordBox, wrongText, 60);
+      animateFadeText(wrongPasswordBox, wrongText, 60);
     }
   }
 </script>
