@@ -84,7 +84,7 @@
       margin-top: 10px;
     }
 
-    /* Restore original wrong password message style */
+    /* Wrong password message without transition */
     #wrong-password-message {
       color: #24292f;
       text-align: center;
@@ -140,6 +140,11 @@ You may never know the depth of what I carry for you. I bear my responsibilities
         audio.play().catch((err) => {
           console.error("Autoplay error:", err);
         });
+
+        // Trigger animation for the message
+        setTimeout(() => {
+          messageContainer.classList.add("visible");
+        }, 100);
       } else {
         wrongPasswordMessage.style.display = "block"; // Show wrong password message
         messageContainer.style.display = "none"; // Hide the message div
