@@ -94,6 +94,8 @@
       text-align: center;
       opacity: 1;
       min-height: 30px;
+      white-space: pre-wrap;
+      transition: opacity 0.3s ease-in-out;
     }
   </style>
 </head>
@@ -140,7 +142,7 @@ Even if you never know the full depth of this love, know this: you are in my pra
         messageBox.innerHTML = fullMessage;
         messageBox.style.display = "block";
         setTimeout(() => messageBox.style.opacity = 1, 10);
-        wrongMessage.innerHTML = "";
+        wrongMessage.textContent = "";
         audio.volume = 0.09;
         audio.play().catch((err) => {
           console.error("Autoplay error:", err);
@@ -157,19 +159,18 @@ Even if you never know the full depth of this love, know this: you are in my pra
 
     function animateWrongMessage(text) {
       const container = document.getElementById("wrong-password-message");
-      container.innerHTML = "";
-      const words = text.split(" ");
-      let index = 0;
+      container.textContent = "";
+      let i = 0;
 
-      function showNextWord() {
-        if (index < words.length) {
-          container.innerHTML += (index > 0 ? " " : "") + words[index];
-          index++;
-          setTimeout(showNextWord, 200); // adjust timing here (ms)
+      function typeChar() {
+        if (i < text.length) {
+          container.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeChar, 40); // adjust speed (ms) — slower = smoother
         }
       }
 
-      showNextWord();
+      typeChar();
     }
   </script>
 </body>
