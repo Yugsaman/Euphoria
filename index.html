@@ -64,7 +64,25 @@
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+
+      /* Text transition styles */
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
     }
+
+    /* Keyframe animation for fade-in and slide-up */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .always-text {
       color: #228B22;
       font-weight: normal;
@@ -116,33 +134,20 @@ I remember watching you sleep, so peaceful, so calm. Maybe it was the stillness,
 When you came to Bahrain, I may have seemed distant but I was genuinely excited.Things is, I mentioned your name without hesitation when asked about my ideal woman. But hearing later that your presence around me would be uncomfortable possibly even unsafe for you ? shattered me in ways I can’t explain.
 I dont compare myself to anyone’s father but with me you will be safe and possibly even more content. I hold you close in every way I can.
 It goes against every part of me to even imagine. hurting you ?! 🙃
-I recall telling you that everything about you, I Loved. and to be honest, No matter how hard I tried, I couldn’t stop until now. It’s like a force of nature, something beyond my control. I just wanted you to know that there is someone out there who loves you without expectation, without return, without condition.
+I recall telling you that everything about you, I Loved. and to be honest, No matter how hard I tried, I couldn’t stop until now. It’s like a force of nature, something beyond my control.  When you thought I left you.. 
 
-After all this time, I hold you in two names: my Champion, my Yugen.
-
-Even if you never know the full depth of this love, know this: you are in my prayers, and in my heart.
-<span class="always-text">Always!.</span>`;
+Thank you. Forever Grateful.
+`;
 
     function checkPassword() {
-      const entered = document.getElementById("password").value;
-      const messageBox = document.getElementById("message");
-      const passwordField = document.getElementById("password");
-      const revealButton = document.querySelector(".reveal-tab");
-      const audio = document.getElementById("audio-player");
+      const password = document.getElementById("password").value;
+      const messageContainer = document.getElementById("message");
 
-      if (entered === correctPassword) {
-        messageBox.innerHTML = fullMessage;
-        messageBox.style.display = "block";
-        audio.volume = 0.09;
-        audio.play().catch((err) => {
-          console.error("Autoplay error:", err);
-        });
-
-        passwordField.style.display = "none";
-        revealButton.style.display = "none";
+      if (password === correctPassword) {
+        messageContainer.style.display = "block"; // Show the message div
+        messageContainer.innerText = fullMessage; // Insert the message text
       } else {
-        messageBox.innerText = "Nah! In all CAPS, Trust Your Inner Voice.";
-        messageBox.style.display = "block";
+        alert("Incorrect password. Try again.");
       }
     }
   </script>
