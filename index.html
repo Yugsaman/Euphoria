@@ -96,7 +96,7 @@
     #wrong-password-message {
       font-family: Georgia, serif;
       font-size: 1rem;
-      color: #444;
+      color: #d9534f; /* Red for error */
       background-color: transparent;
       border: none;
       padding: 0;
@@ -160,16 +160,10 @@ I remember that day you wore the yellow dress. It looked so beautiful on you tha
 I remember that moment when I spoke, and you just listened, if I could ask Allah for you in the afterlife, You replied, “Interesting,” and walked away, When returned, your eyes were swollen, but you smiled, as if nothing had happened. In that brief, vulnerable moment, I caught a glimpse of your grace and depth yet there was no answer.,Still i wait, wondering ..
 I remember watching you sleep, so peaceful, so calm. Maybe it was the stillness, or the way your messy hair fell across your face. That gentle mess still catches me every time, you seemed so effortlessly beautiful. It brought me a sense of calm I can’t explain. You used to call me a creeper for it, I still laugh that little did she know how much i adore her. I remember sitting next to you, playing with your hair while you slept, waiting for you to wake, then teasing you with the smell of Vicks right by your nose. Your reactions, always the cutest, always the funniest.
 
-When you came to Bahrain, I may have seemed distant but I was genuinely excited.Things is, I mentioned your name without hesitation when asked about my ideal woman. But hearing later that your presence around me would be uncomfortable possibly even unsafe for you ? shattered me in ways I can’t explain.
-I dont compare myself to anyone’s father but with me you will be safe and possibly even more content. I hold you close in every way I can.
-It goes against every part of me to even imagine. hurting you ?! 🙃
-I recall telling you that everything about you, I Loved. and to be honest, No matter how hard I tried, I couldn’t stop until now. It’s like a force of nature, something beyond my control. I just wanted you to know that there is someone out there who loves you without expectation, without return, without condition.
+When you came to Bahrain, I may have seemed distant but I was genuinely excited.Things is, I mentioned your name without hesitation when asked about my ideal woman. But when you asked, my heart skipped a beat.. and that's where i failed because perhaps I failed you..
 
-After all this time, I hold you in two names: my Champion, my Yugen.
-
-Even if you never know the full depth of this love, know this: you are in my prayers, and in my heart.
-<span class="always-text">Always!.</span>`;
-
+You don't deserve that silence or anything less than my utmost respect..
+`;
   function animateFadeText(element, text, speed = 50) {
     element.innerHTML = "";
     let i = 0;
@@ -186,6 +180,9 @@ Even if you never know the full depth of this love, know this: you are in my pra
         }, 20);
         i++;
         setTimeout(addChar, speed);
+      } else {
+        // Make sure to show the full message after fade-in effect
+        element.style.opacity = 1; // Ensure the message stays visible
       }
     }
     addChar();
@@ -200,9 +197,7 @@ Even if you never know the full depth of this love, know this: you are in my pra
     const wrongPasswordBox = document.getElementById("wrong-password-message");
 
     if (entered === correctPassword) {
-      wrongPasswordBox.innerHTML = "";
-      wrongPasswordBox.style.display = "none";
-
+      wrongPasswordBox.style.display = "none";  // Hide the wrong password message
       messageBox.innerHTML = fullMessage;
       messageBox.style.display = "block";
       setTimeout(() => {
@@ -226,7 +221,10 @@ Even if you never know the full depth of this love, know this: you are in my pra
       revealButton.style.display = "inline-block";
 
       wrongPasswordBox.style.display = "block";
-      animateFadeText(wrongPasswordBox, wrongText, 60);  // This ensures the wrong password text appears smoothly.
+      wrongPasswordBox.style.opacity = "0"; // Reset the opacity for fade-in effect
+      setTimeout(() => {
+        animateFadeText(wrongPasswordBox, wrongText, 60);  // This ensures the wrong password text appears smoothly.
+      }, 50);
     }
   }
 </script>
