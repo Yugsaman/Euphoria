@@ -64,6 +64,8 @@
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
     .always-text {
       color: #228B22;
@@ -72,6 +74,15 @@
       text-decoration: none;
       display: inline-block;
       margin-top: 10px;
+    }
+    .wrong-password-message {
+      display: none;
+      color: #ff6f61;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
   </style>
 </head>
@@ -91,11 +102,12 @@
     </div>
 
     <div id="message"></div>
+    <div id="wrong-password-message" class="wrong-password-message">Nah! In all CAPS, Trust Your Inner Voice.</div>
   </div>
 
   <script>
     const correctPassword = "CHAMPION";
-    const fullMessage = Just something honest, hidden in plain sight, for you to know.
+    const fullMessage = `Just something honest, hidden in plain sight, for you to know.
 
 When I first saw you, it wasn’t just with my eyes. It was as if the world itself paused, and in that stillness, something sacred awakened within me. It was a moment that couldn’t be explained, a silent connection that I had long since abandoned believing in. But when I saw you, I felt something real, something deep.
 You stood there, dressed in white, and in that instant, everything else seemed to disappear. It wasn’t just the dress, but the way it unveiled, your quiet grace.
@@ -121,11 +133,12 @@ I recall telling you that everything about you, I Loved. and to be honest, No ma
 After all this time, I hold you in two names: my Champion, my Yugen.
 
 Even if you never know the full depth of this love, know this: you are in my prayers, and in my heart.
-<span class="always-text">Always!.</span>;
+<span class="always-text">Always!.</span>`;
 
     function checkPassword() {
       const entered = document.getElementById("password").value;
       const messageBox = document.getElementById("message");
+      const wrongMessage = document.getElementById("wrong-password-message");
       const passwordField = document.getElementById("password");
       const revealButton = document.querySelector(".reveal-tab");
       const audio = document.getElementById("audio-player");
@@ -133,6 +146,8 @@ Even if you never know the full depth of this love, know this: you are in my pra
       if (entered === correctPassword) {
         messageBox.innerHTML = fullMessage;
         messageBox.style.display = "block";
+        messageBox.style.opacity = 1; // Adding opacity transition to reveal the message
+        wrongMessage.style.display = "none";
         audio.volume = 0.09;
         audio.play().catch((err) => {
           console.error("Autoplay error:", err);
@@ -141,8 +156,9 @@ Even if you never know the full depth of this love, know this: you are in my pra
         passwordField.style.display = "none";
         revealButton.style.display = "none";
       } else {
-        messageBox.innerText = "Nah! In all CAPS, Trust Your Inner Voice.";
-        messageBox.style.display = "block";
+        wrongMessage.style.display = "block";
+        wrongMessage.style.opacity = 1; // Fade-in transition for wrong password message
+        messageBox.style.display = "none";
       }
     }
   </script>
