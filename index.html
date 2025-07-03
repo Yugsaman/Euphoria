@@ -58,14 +58,14 @@
       border: 1px solid #d0d7de;
       border-radius: 6px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      text-align: left;  
+      text-align: left;  /* Left align text for better readability */
       font-size: 16px;
       color: #24292f;
-      max-width: 700px;   
-      margin-left: auto;  
+      max-width: 700px;   /* Optional: limits line length for easy reading */
+      margin-left: auto;  /* Center the message box */
       margin-right: auto;
 
-      
+      /* Initially hidden and positioned below the view */
       opacity: 0;
       transform: translateY(30px);
       transition: transform 0.6s ease-out, opacity 0.6s ease-out;
@@ -134,7 +134,7 @@ After all this time, I hold you in two names: my Champion, my Yugen.
 Even if you never know the full depth of this love, know this: you are in my prayers, and in my heart.
 <span class="always-text">Always!.</span>`;
 
-    
+    // Function to check if the password is correct
     function checkPassword() {
       const entered = document.getElementById("password").value;
       const messageBox = document.getElementById("message");
@@ -154,7 +154,7 @@ Even if you never know the full depth of this love, know this: you are in my pra
         passwordField.style.display = "none";
         revealButton.style.display = "none";
 
-        
+        // Trigger the visibility check immediately
         checkVisibility();
       } else {
         messageBox.innerText = "Nah! In all CAPS, Trust Your Inner Voice.";
@@ -162,7 +162,7 @@ Even if you never know the full depth of this love, know this: you are in my pra
       }
     }
 
-    
+    // Function to detect when the message becomes visible on scroll
     function checkVisibility() {
       const messageBox = document.getElementById("message");
       const rect = messageBox.getBoundingClientRect();
@@ -172,7 +172,7 @@ Even if you never know the full depth of this love, know this: you are in my pra
       }
     }
 
-    
+    // Call the function when the page loads and on scroll
     window.addEventListener("scroll", checkVisibility);
     window.addEventListener("load", checkVisibility);
   </script>
