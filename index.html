@@ -14,11 +14,13 @@
       overflow-x: hidden;
       line-height: 1.5;
     }
+
     .container {
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
     }
+
     .reveal-tab {
       display: inline-block;
       font-family: Georgia, serif;
@@ -33,10 +35,12 @@
       margin-top: 20px;
       cursor: pointer;
     }
+
     .reveal-tab:hover {
       background-color: #eee;
       color: #000;
     }
+
     input {
       font-size: 1em;
       padding: 0.5em;
@@ -49,6 +53,7 @@
       margin-left: auto;
       margin-right: auto;
     }
+
     #message {
       white-space: pre-wrap;
       margin-top: 20px;
@@ -67,6 +72,7 @@
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
+
     .always-text {
       color: #228B22;
       font-weight: normal;
@@ -75,24 +81,21 @@
       display: inline-block;
       margin-top: 10px;
     }
+
     .wrong-password-message {
       display: none;
-      font-family: Georgia, serif;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      font-family: inherit; /* same as "Hear it anew" */
       color: #444;
-      text-decoration: none;
-      padding: 8px 14px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
       background-color: transparent;
-      transition: opacity 0.5s ease-in-out, background 0.3s ease, color 0.3s ease;
+      border: none;
+      padding: 0;
       margin-top: 20px;
       text-align: center;
-      max-width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
       opacity: 0;
+      transition: opacity 0.6s ease-in-out;
     }
+
     .wrong-password-message.visible {
       display: block;
       opacity: 1;
@@ -115,14 +118,16 @@
     </div>
 
     <div id="message"></div>
-    <div id="wrong-password-message" class="wrong-password-message">Nah! In all CAPS, Trust Your Inner Voice.</div>
+    <div id="wrong-password-message" class="wrong-password-message">
+      Nah! In all CAPS, Trust Your Inner Voice.
+    </div>
   </div>
 
   <script>
     const correctPassword = "CHAMPION";
     const fullMessage = `Just something honest, hidden in plain sight, for you to know.
 
-When I first saw you, it wasn’t just with my eyes. It was as if the world itself paused, and in that stillness, something sacred awakened within me... (✂️ truncated for space)
+When I first saw you, it wasn’t just with my eyes. It was as if the world itself paused, and in that stillness, something sacred awakened within me...
 
 After all this time, I hold you in two names: my Champion, my Yugen.
 
