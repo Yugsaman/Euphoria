@@ -31,7 +31,7 @@
 
   p {
     font-family: 'EB Garamond', serif;
-    font-size: 1.1rem;
+    font-size: 1.3rem; /* increased from 1.1rem */
     color: #444;
     margin-bottom: 1.2em;
     transition: opacity 0.6s ease-out;
@@ -104,7 +104,7 @@
 
   <div class="container">
     <h2>🌸🤍🕯️ Curiosity brought you here! because something in you remembered, and stayed quietly, deep inside.</h2>
-    <p>Hear it anew, if you are my.?.</p>
+    <p id="prePasswordLine">Hear it anew, if you are my.?.</p>
 
     <audio id="audio-player" loop>
       <source src="echo.mp3" type="audio/mp3" />
@@ -152,6 +152,7 @@
   const revealButton = document.querySelector(".reveal-tab");
   const wrongPasswordBox = document.getElementById("wrong-password-message");
   const audio = document.getElementById("audio-player");
+  const prePasswordLine = document.getElementById("prePasswordLine");
 
   function checkPassword() {
     const entered = passwordField.value.trim();
@@ -159,6 +160,9 @@
       wrongPasswordBox.textContent = "";
       wrongPasswordBox.style.opacity = "0";
       wrongPasswordBox.style.visibility = "hidden";
+
+      // Remove the pre-password line
+      prePasswordLine.style.display = "none";
 
       // Clear message box and add paragraphs
       messageBox.innerHTML = "";
