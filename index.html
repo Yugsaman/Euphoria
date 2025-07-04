@@ -1,107 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Saman Azeemi</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Saman Azeemi</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Great+Vibes&display=swap" rel="stylesheet" />
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Great+Vibes&display=swap" rel="stylesheet" />
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #f6f8fa;
-      color: #24292f;
-      font-family: 'EB Garamond', serif;
-      line-height: 1.9;
-      overflow-x: hidden;
-    }
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #f6f8fa;
+    color: #24292f;
+    font-family: 'EB Garamond', serif;
+    line-height: 1.9;
+    overflow-x: hidden;
+  }
 
-    .container {
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 0 20px;
-      text-align: center;
-    }
+  .container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
 
-    h2 {
-      font-weight: normal;
-      font-size: 1.4rem;
-    }
+  h2 {
+    font-weight: normal;
+    font-size: 1.4rem;
+  }
 
-    input[type="password"] {
-      font-size: 1em;
-      padding: 0.6em;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin: 20px auto 10px;
-      display: block;
-      background-color: #fff;
-      color: #333;
-    }
+  input[type="password"] {
+    font-size: 1em;
+    padding: 0.6em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px auto 10px;
+    display: block;
+    background-color: #fff;
+    color: #333;
+  }
 
-    .reveal-tab {
-      display: inline-block;
-      font-family: Georgia, serif;  /* original font */
-      font-size: 1rem;
-      color: #444;
-      text-decoration: none;
-      padding: 10px 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: transparent;
-      transition: background 0.3s ease, color 0.3s ease;
-      cursor: pointer;
-      margin-top: 10px;
-    }
+  .reveal-tab {
+    display: inline-block;
+    font-family: Georgia, serif;  /* original font */
+    font-size: 1rem;
+    color: #444;
+    text-decoration: none;
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: background 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    margin-top: 10px;
+  }
 
-    .reveal-tab:hover {
-      background-color: #eee;
-      color: #000;
-    }
+  .reveal-tab:hover {
+    background-color: #eee;
+    color: #000;
+  }
 
-    #wrong-password-message {
-      font-size: 1rem;
-      color: #555;
-      margin-top: 30px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      font-family: Georgia, serif;
-    }
+  #wrong-password-message {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 30px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-family: Georgia, serif;
+  }
 
-    #message-wrapper {
-      max-height: 85vh;
-      overflow-y: auto;
-      padding: 10px 0;
-      display: none;
-      opacity: 0;
-      transition: opacity 1.5s ease;
+  #message-wrapper {
+    max-height: 85vh;
+    overflow-y: scroll;
+    padding: 10px 0;
+    display: none;
+    opacity: 0;
+    transition: opacity 1.5s ease;
 
-      /* scroll fade effect - fade out top lines */
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 100%);
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 100%);
-    }
+    /* Fade out the top text while scrolling */
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
+  }
 
-    #message {
-      font-size: 1.22rem;
-      text-align: left;
-      padding: 0 20px;
-      white-space: pre-wrap;
-      font-family: 'EB Garamond', serif;
-    }
+  /* Hide scrollbar for all browsers */
+  #message-wrapper {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+  }
+  #message-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 
-    .always-text {
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.4rem;
-      color: #2a9d8f;
-      display: block;
-      text-align: left;
-      margin-left: 20px;
-      margin-top: 40px;
-    }
-  </style>
+  #message {
+    font-size: 1.22rem;
+    text-align: left;
+    padding: 0 20px;
+    white-space: pre-wrap;
+    font-family: 'EB Garamond', serif;
+  }
+
+  .always-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.4rem;
+    color: #2a9d8f;
+    display: block;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 40px;
+  }
+</style>
 </head>
 <body>
   <div class="container">
@@ -122,9 +131,9 @@
     </div>
   </div>
 
-  <script>
-    const correctPassword = "CHAMPION";
-    const fullMessage = `Just something honest, hidden in plain sight, for you to know.
+<script>
+  const correctPassword = "CHAMPION";
+  const fullMessage = `Just something honest, hidden in plain sight, for you to know.
 
 When I first saw you, it wasn’t just with my eyes. It was as if the world itself paused, and in that stillness, something sacred awakened within me. It was a moment that couldn’t be explained, a silent connection that I had long since abandoned believing in. But when I saw you, I felt something real, something deep.
 You stood there, dressed in white, and in that instant, everything else seemed to disappear. It wasn’t just the dress, but the way it unveiled, your quiet grace.
@@ -151,35 +160,35 @@ After all this time, I hold you in two names: my Champion, my Yugen.
 
 Even if you never know the full depth of this love, know this: you are in my prayers, and in my heart.`;
 
-    function checkPassword() {
-      const entered = document.getElementById("password").value.trim();
-      const wrapper = document.getElementById("message-wrapper");
-      const msg = document.getElementById("message");
-      const wrong = document.getElementById("wrong-password-message");
-      const audio = document.getElementById("audio-player");
+  function checkPassword() {
+    const entered = document.getElementById("password").value.trim();
+    const wrapper = document.getElementById("message-wrapper");
+    const msg = document.getElementById("message");
+    const wrong = document.getElementById("wrong-password-message");
+    const audio = document.getElementById("audio-player");
 
-      if (entered === correctPassword) {
-        msg.innerText = fullMessage;
-        wrapper.style.display = "block";
-        setTimeout(() => {
-          wrapper.style.opacity = "1";
-        }, 100);
-        document.getElementById("password").style.display = "none";
-        document.querySelector(".reveal-tab").style.display = "none";
+    if (entered === correctPassword) {
+      msg.innerText = fullMessage;
+      wrapper.style.display = "block";
+      setTimeout(() => {
+        wrapper.style.opacity = "1";
+      }, 100);
+      document.getElementById("password").style.display = "none";
+      document.querySelector(".reveal-tab").style.display = "none";
+      wrong.style.opacity = "0";
+
+      // Play audio
+      audio.volume = 0.09;
+      audio.play().catch(() => {
+        // Autoplay may be blocked, ignore
+      });
+    } else {
+      wrong.style.opacity = "1";
+      setTimeout(() => {
         wrong.style.opacity = "0";
-
-        // Play audio
-        audio.volume = 0.09;
-        audio.play().catch(() => {
-          // Autoplay may be blocked, ignore error
-        });
-      } else {
-        wrong.style.opacity = "1";
-        setTimeout(() => {
-          wrong.style.opacity = "0";
-        }, 2500);
-      }
+      }, 2500);
     }
-  </script>
+  }
+</script>
 </body>
 </html>
