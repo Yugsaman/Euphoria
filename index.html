@@ -101,7 +101,7 @@
 
   <div class="container">
     <h2>🌸🤍🕯️ Curiosity brought you here! because something in you remembered, and stayed quietly, deep inside.</h2>
-    <p>Hear it anew, if you are my.?.</p>
+    <p id="intro-line">Hear it anew, if you are my.?.</p>
 
     <audio id="audio-player" loop>
       <source src="echo.mp3" type="audio/mp3" />
@@ -157,6 +157,9 @@
       wrongPasswordBox.style.opacity = "0";
       wrongPasswordBox.style.visibility = "hidden";
 
+      // Hide the intro line after correct password
+      document.getElementById("intro-line").style.display = "none";
+
       messageBox.innerHTML = "";
       paragraphs.forEach(text => {
         const p = document.createElement("p");
@@ -193,12 +196,11 @@
     const options = {
       root: null,
       rootMargin: '-20px 0px 0px 0px',
-      threshold: Array.from({length: 101}, (_, i) => i / 100) // 0, 0.01, 0.02 ... 1
+      threshold: Array.from({length: 101}, (_, i) => i / 100)
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        // Fade between 1 (fully visible) and 0.3 (minimum visibility)
         const minOpacity = 0.3;
         const ratio = entry.intersectionRatio;
         const opacity = Math.max(minOpacity, ratio);
