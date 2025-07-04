@@ -81,6 +81,29 @@
     margin-right: auto;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    height: 400px;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  #message::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 40px;
+    width: 100%;
+    background: linear-gradient(to bottom, #f6f8fa 60%, transparent);
+    pointer-events: none;
+  }
+
+  #message::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    background: linear-gradient(to top, #f6f8fa 60%, transparent);
+    pointer-events: none;
   }
 
   .always-text {
@@ -202,7 +225,6 @@ Even if you never know the full depth of this love, know this: you are in my pra
     }
   }
 
-  // Hide wrong message while typing
   document.getElementById("password").addEventListener("input", () => {
     const wrongPasswordBox = document.getElementById("wrong-password-message");
     wrongPasswordBox.style.opacity = "0";
