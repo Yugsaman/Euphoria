@@ -5,18 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Saman Azeemi</title>
 
-<!-- Fonts -->
+<!-- Import EB Garamond and Great Vibes from Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Great+Vibes&display=swap" rel="stylesheet" />
 
 <style>
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: 'EB Garamond', serif;
     margin: 0; padding: 0;
     background-color: #f6f8fa;
     color: #24292f;
     overflow-x: hidden;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .container {
@@ -27,14 +26,16 @@
 
   h2 {
     font-weight: normal;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   }
 
   p {
     font-family: 'EB Garamond', serif;
-    font-size: 1.3rem; /* increased from 1.1rem */
-    color: #444;
+    font-size: 1.18rem;
+    color: #24292f;
     margin-bottom: 1.2em;
-    transition: opacity 0.6s ease-out;
+    transition: opacity 0.4s ease-out;
     opacity: 1;
   }
 
@@ -83,8 +84,9 @@
     font-weight: normal;
     cursor: default;
     text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
+    display: block;
+    margin-top: 30px;
+    margin-left: 0;
   }
 
   #wrong-password-message {
@@ -97,6 +99,7 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    margin-top: 8px; /* small spacing below button */
   }
 </style>
 </head>
@@ -104,7 +107,7 @@
 
   <div class="container">
     <h2>🌸🤍🕯️ Curiosity brought you here! because something in you remembered, and stayed quietly, deep inside.</h2>
-    <p id="prePasswordLine">Hear it anew, if you are my.?.</p>
+    <p id="pre-password-line">Hear it anew, if you are my.?.</p>
 
     <audio id="audio-player" loop>
       <source src="echo.mp3" type="audio/mp3" />
@@ -116,8 +119,8 @@
       <button class="reveal-tab" onclick="checkPassword()">Reveal Message</button>
     </div>
 
-    <div id="message"></div>
     <div id="wrong-password-message"></div>
+    <div id="message"></div>
   </div>
 
 <script>
@@ -152,7 +155,7 @@
   const revealButton = document.querySelector(".reveal-tab");
   const wrongPasswordBox = document.getElementById("wrong-password-message");
   const audio = document.getElementById("audio-player");
-  const prePasswordLine = document.getElementById("prePasswordLine");
+  const prePasswordLine = document.getElementById("pre-password-line");
 
   function checkPassword() {
     const entered = passwordField.value.trim();
@@ -161,7 +164,6 @@
       wrongPasswordBox.style.opacity = "0";
       wrongPasswordBox.style.visibility = "hidden";
 
-      // Remove the pre-password line
       prePasswordLine.style.display = "none";
 
       // Clear message box and add paragraphs
@@ -173,9 +175,11 @@
       });
 
       messageBox.style.display = "block";
+      messageBox.style.opacity = "0";   // start fully transparent
       setTimeout(() => {
-        messageBox.style.opacity = "1";
-      }, 10);
+        messageBox.style.transition = "opacity 1.2s ease-in-out"; // fade duration
+        messageBox.style.opacity = "1";  // fade in
+      }, 50);
 
       passwordField.style.display = "none";
       revealButton.style.display = "none";
