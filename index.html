@@ -8,8 +8,7 @@
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
     background-color: #f6f8fa;
     color: #24292f;
     overflow-x: hidden;
@@ -19,22 +18,14 @@
   .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 40px 20px 100px;
-    font-size: 16px;
-    white-space: pre-wrap;
-    /* Mask for fade top & bottom on scroll */
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
-    mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-    mask-repeat: no-repeat;
+    padding: 20px;
   }
 
   h2 {
     font-weight: normal;
   }
 
-  p, #message {
+  p {
     font-family: Georgia, serif;
     font-size: 1.1rem;
     color: #444;
@@ -74,10 +65,17 @@
   }
 
   #message {
+    white-space: pre-wrap;
     margin-top: 20px;
+    padding: 0 10px;
+    text-align: left;
+    font-size: 16px;
     color: #24292f;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    /* Initially no mask */
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .always-text {
@@ -103,7 +101,6 @@
 </style>
 </head>
 <body>
-
   <div class="container">
     <h2>🌸🤍🕯️ Curiosity brought you here! because something in you remembered, and stayed quietly, deep inside.</h2>
     <p>Hear it anew, if you are my.?.</p>
@@ -153,29 +150,34 @@ After all this time, I hold you in two names: my Champion, my Yugen.
 Even if you never know the full depth of this love, know this: you are in my prayers, and in my heart.
 <span class="always-text">Always!.</span>`;
 
-  function checkPassword() {
-    const entered = document.getElementById("password").value.trim();
-    const messageBox = document.getElementById("message");
-    const passwordField = document.getElementById("password");
-    const revealButton = document.querySelector(".reveal-tab");
-    const audio = document.getElementById("audio-player");
-    const wrongPasswordBox = document.getElementById("wrong-password-message");
+  const messageBox = document.getElementById("message");
+  const passwordField = document.getElementById("password");
+  const revealButton = document.querySelector(".reveal-tab");
+  const wrongPasswordBox = document.getElementById("wrong-password-message");
+  const audio = document.getElementById("audio-player");
 
+  function checkPassword() {
+    const entered = passwordField.value.trim();
     if (entered === correctPassword) {
       wrongPasswordBox.textContent = "";
       wrongPasswordBox.style.opacity = "0";
       wrongPasswordBox.style.visibility = "hidden";
 
       messageBox.innerHTML = fullMessage;
-      setTimeout(() => {
-        messageBox.style.opacity = "1";
-      }, 10);
+      messageBox.style.opacity = "1";
 
+      // Hide input and button
+      passwordField.style.display = "none";
+      revealButton.style.display = "none";
+
+      // Play audio
       audio.volume = 0.09;
       audio.play().catch(err => console.error("Audio play error:", err));
 
-      passwordField.style.display = "none";
-      revealButton.style.display = "none";
+      // Add scroll fade effect
+      window.addEventListener("scroll", onScrollFade);
+      onScrollFade(); // initial call
+
     } else {
       messageBox.style.opacity = "0";
       wrongPasswordBox.textContent = wrongText;
@@ -184,12 +186,33 @@ Even if you never know the full depth of this love, know this: you are in my pra
     }
   }
 
-  document.getElementById("password").addEventListener("input", () => {
-    const wrongPasswordBox = document.getElementById("wrong-password-message");
+  // On input hide wrong message
+  passwordField.addEventListener("input", () => {
     wrongPasswordBox.style.opacity = "0";
     wrongPasswordBox.style.visibility = "hidden";
   });
-</script>
 
+  // Scroll fade handler
+  function onScrollFade() {
+    const fadeHeight = 80; // pixels over which fade happens at top
+    const scrollTop = window.scrollY || window.pageYOffset;
+
+    let maskPercent = 0;
+    if(scrollTop < fadeHeight) {
+      // mask from transparent to solid over fadeHeight
+      maskPercent = scrollTop / fadeHeight;
+    } else {
+      maskPercent = 1;
+    }
+
+    // Create dynamic mask gradient for fade on top
+    // mask goes from transparent (0%) to black (solid) over maskPercent
+    // At bottom always fully visible
+    const maskStyle = `linear-gradient(to bottom, rgba(0,0,0,${maskPercent}) 0%, black 10%, black 100%)`;
+
+    messageBox.style.webkitMaskImage = maskStyle;
+    messageBox.style.maskImage = maskStyle;
+  }
+</script>
 </body>
 </html>
