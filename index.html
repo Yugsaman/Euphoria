@@ -15,7 +15,7 @@
       background-color: #f6f8fa;
       color: #24292f;
       font-family: 'EB Garamond', serif;
-      line-height: 1.8;
+      line-height: 1.9;
       overflow-x: hidden;
     }
 
@@ -23,17 +23,23 @@
       max-width: 800px;
       margin: 60px auto;
       padding: 0 20px;
+      text-align: center;
     }
 
     h2 {
       font-weight: normal;
-      font-size: 1.3rem;
-      text-align: center;
+      font-size: 1.4rem;
     }
 
-    p {
-      font-size: 1.2rem;
-      color: #3a3a3a;
+    input[type="password"] {
+      font-size: 1em;
+      padding: 0.6em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 20px auto 10px;
+      display: block;
+      background-color: #fff;
+      color: #333;
     }
 
     .reveal-tab {
@@ -47,7 +53,7 @@
       background-color: transparent;
       transition: background 0.3s ease, color 0.3s ease;
       cursor: pointer;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     .reveal-tab:hover {
@@ -55,65 +61,61 @@
       color: #000;
     }
 
-    input[type="password"] {
-      font-size: 1em;
-      padding: 0.5em;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin: 20px auto;
-      display: block;
-      background-color: #fff;
-      color: #333;
-    }
-
-    #message-wrapper {
-      max-height: 80vh;
-      overflow-y: auto;
-      padding: 10px;
-      display: none;
-      opacity: 0;
-      transition: opacity 1.5s ease;
-      position: relative;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0));
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0));
-    }
-
-    #message-wrapper::-webkit-scrollbar {
-      width: 6px;
-    }
-    #message-wrapper::-webkit-scrollbar-thumb {
-      background: #aaa;
-      border-radius: 3px;
-    }
-
     #wrong-password-message {
-      text-align: center;
       font-size: 1rem;
       color: #555;
-      margin-top: 15px;
+      margin-top: 30px;
       opacity: 0;
       transition: opacity 0.3s ease;
       font-family: Georgia, serif;
     }
 
+    #message-wrapper {
+      max-height: 85vh;
+      overflow-y: scroll;
+      padding: 10px 0;
+      display: none;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0));
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0));
+    }
+
+    #message-wrapper::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+
+    #message {
+      font-size: 1.22rem;
+      text-align: left;
+      padding: 0 20px;
+      white-space: pre-wrap;
+    }
+
     .always-text {
       font-family: 'Great Vibes', cursive;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       color: #2a9d8f;
-      margin-top: 50px;
-      display: inline-block;
+      display: block;
       text-align: left;
+      margin-left: 20px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>🌸🤍🕯️ Curiosity brought you here! because something in you remembered, and stayed quietly, deep inside.</h2>
+
     <input type="password" id="password" placeholder="Enter password" />
-    <div style="text-align:center;">
-      <button class="reveal-tab" onclick="checkPassword()">Reveal Message</button>
-    </div>
+    <button class="reveal-tab" onclick="checkPassword()">Reveal Message</button>
     <div id="wrong-password-message">Nah! In all CAPS, Trust Your Inner Voice.</div>
+
+    <audio id="audio-player" loop>
+      <source src="echo.mp3" type="audio/mp3" />
+      Your browser does not support the audio element.
+    </audio>
 
     <div id="message-wrapper">
       <div id="message"></div>
@@ -123,7 +125,7 @@
 
   <script>
     const correctPassword = "CHAMPION";
-    const messageContent = `Just something honest, hidden in plain sight, for you to know.
+    const fullMessage = `Just something honest, hidden in plain sight, for you to know.
 
 When I first saw you, it wasn’t just with my eyes. It was as if the world itself paused, and in that stillness, something sacred awakened within me. It was a moment that couldn’t be explained, a silent connection that I had long since abandoned believing in. But when I saw you, I felt something real, something deep.
 You stood there, dressed in white, and in that instant, everything else seemed to disappear. It wasn’t just the dress, but the way it unveiled, your quiet grace.
@@ -131,46 +133,52 @@ I knew, in that moment, that whatever I truly desire is not destined to remain. 
 It is strange, you know? How you cause me such immense pain, yet, somehow, your mere presence has the power to soothe it. I don’t fully understand this paradox, but it’s real, and it lingers with me. Every morning, you are the first thought that comes to my mind, when I experience moments of clarity, I see you not as a memory, but as something alive, something present.
 
 I know we cannot be together here, bound by the limits of this world, but in the realm of the Eternal, where there is no separation, I’ve asked for you. I’ve imagined us there, side by side, heads bowed before Allah, as two of one soul reunited.
-You may never know the depth of what I carry for you. I bear my responsibilities with respect, towards my family. But love... love is something different. It’s not duty. It’s not comfort. It’s the quiet willingness to lose yourself in someone else’s presence, without fear.There’s this thing about me: I dedicate myself to the people I truly care about. making them happy and being with them gives me great pride and confidence. My Sheikh, my father, and now, I realize it’s you as well.
-In the chaos of it all, I imagine you beside me, bringing a sense of calm and peace you hold.. I don’t speak easily to others, but to you, in silence, I reveal everything. I imagine a place, beyond the impurities of this world, where we speak not as strangers but as souls, bound by a love unspoken yet understood.
+You may never know the depth of what I carry for you. I bear my responsibilities with respect, towards my family. But love... love is something different. It’s not duty. It’s not comfort. It’s the quiet willingness to lose yourself in someone else’s presence, without fear. There’s this thing about me: I dedicate myself to the people I truly care about. Making them happy and being with them gives me great pride and confidence. My Sheikh, my father, and now, I realize it’s you as well.
+In the chaos of it all, I imagine you beside me, bringing a sense of calm and peace you hold. I don’t speak easily to others, but to you, in silence, I reveal everything. I imagine a place, beyond the impurities of this world, where we speak not as strangers but as souls, bound by a love unspoken yet understood.
 There’s just simply no way I figured to fully express this love in a lifetime. Even a thousand days with you wouldn’t reveal the peace I experienced beside you.
 
-But let me say this: after meeting you, I realized how perfect you are in my eyes. Despite our few conversations, the light jokes, the serious talks, I remember them all. I remember you saying your goal wasn’t clear, but you were determined not to rely on others.You also once shared that instead of stressing over choices, you let others pick what you like, trusting them to know your preferences without burdening yourself, I realized that day that it wasn’t about dependence, but about trust, deep and rock solid.
-I remember that day you wore the yellow dress. It looked so beautiful on you that I couldn’t tear my eyes away. Your reaction was so sweet, shy and confused, all at once. It made my whole week. There was something in the way you carried yourself that drew me in something deeper. I can’t help but smile when I think of it, even now. 
+But let me say this: after meeting you, I realized how perfect you are in my eyes. Despite our few conversations, the light jokes, the serious talks, I remember them all. I remember you saying your goal wasn’t clear, but you were determined not to rely on others. You also once shared that instead of stressing over choices, you let others pick what you like, trusting them to know your preferences without burdening yourself. I realized that day that it wasn’t about dependence, but about trust, deep and rock solid.
+I remember that day you wore the yellow dress. It looked so beautiful on you that I couldn’t tear my eyes away. Your reaction was so sweet, shy and confused, all at once. It made my whole week. There was something in the way you carried yourself that drew me in something deeper. I can’t help but smile when I think of it, even now.
 
-I remember that moment when I spoke, and you just listened, if I could ask Allah for you in the afterlife, You replied, “Interesting,” and walked away, When returned, your eyes were swollen, but you smiled, as if nothing had happened. In that brief, vulnerable moment, I caught a glimpse of your grace and depth yet there was no answer.,Still I wait, wondering..
-I remember watching you sleep, so peaceful, so calm. Maybe it was the stillness, or the way your messy hair fell across your face. That gentle mess still catches me every time, you seemed so effortlessly beautiful. It brought me a sense of calm I can’t explain. You used to call me a creeper for it, I still laugh that little did she know how much I adore her. I remember sitting next to you, playing with your hair while you slept, waiting for you to wake, then teasing you with the smell of Vicks right by your nose. Your reactions, always the cutest, always the funniest.
+I remember that moment when I spoke, and you just listened, if I could ask Allah for you in the afterlife. You replied, “Interesting,” and walked away. When you returned, your eyes were swollen, but you smiled, as if nothing had happened. In that brief, vulnerable moment, I caught a glimpse of your grace and depth. Yet there was no answer. Still I wait, wondering…
+I remember watching you sleep, so peaceful, so calm. Maybe it was the stillness, or the way your messy hair fell across your face. That gentle mess still catches me every time. You seemed so effortlessly beautiful. It brought me a sense of calm I can’t explain. You used to call me a creeper for it. I still laugh — little did she know how much I adore her. I remember sitting next to you, playing with your hair while you slept, waiting for you to wake, then teasing you with the smell of Vicks right by your nose. Your reactions, always the cutest, always the funniest.
 
-When you came to Bahrain, I may have seemed distant but I was genuinely excited. Things is, I mentioned your name without hesitation when asked about my ideal woman. But hearing later that your presence around me would be uncomfortable possibly even unsafe for you? shattered me in ways I can’t explain.
-I don’t compare myself to anyone’s father but with me you will be safe and possibly even more content. I hold you close in every way I can.
-It goes against every part of me to even imagine. hurting you ?! 🙃
-I recall telling you that everything about you, I Loved. and to be honest, No matter how hard I tried, I couldn’t stop until now. It’s like a force of nature, something beyond my control. I just wanted you to know that there is someone out there who loves you without expectation, without return, without condition.
+When you came to Bahrain, I may have seemed distant, but I was genuinely excited. Thing is, I mentioned your name without hesitation when asked about my ideal woman. But hearing later that your presence around me would be uncomfortable — possibly even unsafe — for you? Shattered me in ways I can’t explain.
+I don’t compare myself to anyone’s father, but with me you will be safe, and possibly even more content. I hold you close in every way I can.
+It goes against every part of me to even imagine — hurting you?! 🙃
+I recall telling you that everything about you, I loved. And to be honest, no matter how hard I tried, I couldn’t stop until now. It’s like a force of nature, something beyond my control. I just wanted you to know that there is someone out there who loves you without expectation, without return, without condition.
 
 After all this time, I hold you in two names: my Champion, my Yugen.
 
-Even if you never know the full depth of this love, know this: you are in my prayers, and in my heart.
-`;
+Even if you never know the full depth of this love, know this: you are in my prayers, and in my heart.`;
 
     function checkPassword() {
-      const input = document.getElementById("password").value.trim();
-      const messageBox = document.getElementById("message-wrapper");
-      const wrongMsg = document.getElementById("wrong-password-message");
-      const message = document.getElementById("message");
+      const entered = document.getElementById("password").value.trim();
+      const wrapper = document.getElementById("message-wrapper");
+      const msg = document.getElementById("message");
+      const wrong = document.getElementById("wrong-password-message");
+      const audio = document.getElementById("audio-player");
 
-      if (input === correctPassword) {
-        message.innerText = messageContent;
-        messageBox.style.display = "block";
+      if (entered === correctPassword) {
+        msg.innerText = fullMessage;
+        wrapper.style.display = "block";
         setTimeout(() => {
-          messageBox.style.opacity = "1";
+          wrapper.style.opacity = "1";
         }, 100);
         document.getElementById("password").style.display = "none";
         document.querySelector(".reveal-tab").style.display = "none";
-        wrongMsg.style.opacity = "0";
+        wrong.style.opacity = "0";
+
+        // Play audio
+        audio.volume = 0.09;
+        audio.play().catch((e) => {
+          console.warn("Audio autoplay blocked.");
+        });
       } else {
-        wrongMsg.style.opacity = "1";
+        wrong.style.opacity = "1";
         setTimeout(() => {
-          wrongMsg.style.opacity = "0";
-        }, 2000);
+          wrong.style.opacity = "0";
+        }, 2500);
       }
     }
   </script>
