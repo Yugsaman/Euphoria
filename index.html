@@ -84,15 +84,18 @@
     display: block;
   }
 
+  /* Smaller minimalistic Always! fixed at bottom-left */
   .always-text {
-    font-family: 'Pacifico', cursive, Georgia, serif;
-    font-size: 2rem;
+    position: fixed;
+    bottom: 12px;
+    left: 16px;
+    font-family: Georgia, serif;
+    font-size: 0.9rem;
     color: #2a9d8f;
-    font-weight: normal;
-    text-align: center;
-    display: block;
-    margin-top: 1.5em;
-    letter-spacing: 0.05em;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    user-select: none;
+    pointer-events: none;
   }
 
   #wrong-password-message {
