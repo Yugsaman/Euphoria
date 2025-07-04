@@ -44,7 +44,7 @@
 
   .reveal-tab {
     display: inline-block;
-    font-family: Georgia, serif;  /* original font */
+    font-family: Georgia, serif;
     font-size: 1rem;
     color: #444;
     text-decoration: none;
@@ -79,13 +79,11 @@
     opacity: 0;
     transition: opacity 1.5s ease;
 
-    /* Fade out the top text while scrolling */
-    mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
-  }
+    /* Adjusted fade out top */
+    mask-image: linear-gradient(to bottom, transparent 0%, transparent 10%, black 30%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 10%, black 30%, black 100%);
 
-  /* Hide scrollbar for all browsers */
-  #message-wrapper {
+    /* Hide scrollbar for all browsers */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* IE and Edge */
   }
@@ -104,6 +102,7 @@
   .always-text {
     font-family: 'Great Vibes', cursive;
     font-size: 1.4rem;
+    font-weight: 300;
     color: #2a9d8f;
     display: block;
     text-align: left;
