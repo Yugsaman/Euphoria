@@ -68,9 +68,20 @@
     margin-right: auto;
   }
 
+  /* Message container starts hidden and slightly down */
   #message {
     margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.8s ease-out, transform 1.8s ease-out;
     display: none;
+  }
+
+  /* When message is revealed */
+  #message.revealed {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
   }
 
   .always-text {
@@ -157,7 +168,7 @@
       wrongPasswordBox.style.opacity = "0";
       wrongPasswordBox.style.visibility = "hidden";
 
-      // Hide the intro line after correct password
+      // Hide intro line
       document.getElementById("intro-line").style.display = "none";
 
       messageBox.innerHTML = "";
@@ -167,10 +178,13 @@
         messageBox.appendChild(p);
       });
 
+      // Reveal with smooth fade + slide up
       messageBox.style.display = "block";
-      setTimeout(() => {
-        messageBox.style.opacity = "1";
-      }, 10);
+
+      // force reflow for transition to work properly
+      void messageBox.offsetWidth;
+
+      messageBox.classList.add("revealed");
 
       passwordField.style.display = "none";
       revealButton.style.display = "none";
@@ -180,6 +194,7 @@
 
       startFadeObserver();
     } else {
+      messageBox.classList.remove("revealed");
       messageBox.style.opacity = "0";
       wrongPasswordBox.textContent = wrongText;
       wrongPasswordBox.style.opacity = "1";
