@@ -68,7 +68,6 @@
     margin-right: auto;
   }
 
-  /* Message container starts hidden and slightly down */
   #message {
     margin-top: 20px;
     opacity: 0;
@@ -77,25 +76,20 @@
     display: none;
   }
 
-  /* When message is revealed */
   #message.revealed {
     opacity: 1;
     transform: translateY(0);
     display: block;
   }
 
-  /* Smaller minimalistic Always! fixed at bottom-left */
+  /* "Always!" styling in handwriting font, small & subtle */
   .always-text {
-    position: fixed;
-    bottom: 12px;
-    left: 16px;
-    font-family: Georgia, serif;
-    font-size: 0.9rem;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.1rem;
     color: #2a9d8f;
     font-weight: 400;
-    letter-spacing: 0.03em;
+    margin-top: 1em;
     user-select: none;
-    pointer-events: none;
   }
 
   #wrong-password-message {
@@ -154,8 +148,7 @@
     `It goes against every part of me to even imagine. hurting you ?! 🙃`,
     `I recall telling you that everything about you, I Loved. and to be honest, No matter how hard I tried, I couldn’t stop until now. It’s like a force of nature, something beyond my control. I just wanted you to know that there is someone out there who loves you without expectation, without return, without condition.`,
     `After all this time, I hold you in two names: my Champion, my Yugen.`,
-    `Even if you never know the full depth of this love, know this: you are in my prayers, and in my heart.`,
-    `<span class="always-text">Always!.</span>`
+    `Even if you never know the full depth of this love, know this: you are in my prayers, and in my heart.`
   ];
 
   const messageBox = document.getElementById("message");
@@ -177,9 +170,15 @@
       messageBox.innerHTML = "";
       paragraphs.forEach(text => {
         const p = document.createElement("p");
-        p.innerHTML = text;
+        p.textContent = text;
         messageBox.appendChild(p);
       });
+
+      // Append the "Always!" in handwriting style below all paragraphs
+      const alwaysElem = document.createElement("p");
+      alwaysElem.className = "always-text";
+      alwaysElem.textContent = "Always!.";
+      messageBox.appendChild(alwaysElem);
 
       // Reveal with smooth fade + slide up
       messageBox.style.display = "block";
