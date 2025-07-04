@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Saman Azeemi</title>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
 <style>
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -33,6 +26,7 @@
     margin-bottom: 1.2em;
     opacity: 1;
     transition: opacity 0.3s ease-out;
+    font-weight: 300; /* lighter font weight */
   }
 
   .reveal-tab {
@@ -87,7 +81,7 @@
     font-family: 'Pacifico', cursive;
     font-size: 1.1rem;
     color: #2a9d8f;
-    font-weight: 400;
+    font-weight: 300; /* lighter font weight */
     margin-top: 1em;
     user-select: none;
   }
@@ -104,131 +98,3 @@
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
   }
 </style>
-</head>
-<body>
-
-  <div class="container">
-    <h2>🌸🤍🕯️ Curiosity brought you here! because something in you remembered, and stayed quietly, deep inside.</h2>
-    <p id="intro-line">Hear it anew, if you are my.?.</p>
-
-    <audio id="audio-player" loop>
-      <source src="echo.mp3" type="audio/mp3" />
-      Your browser does not support the audio element.
-    </audio>
-
-    <input type="password" id="password" placeholder="Enter password" aria-label="Enter password" />
-    <div style="text-align:center;">
-      <button class="reveal-tab" onclick="checkPassword()">Reveal Message</button>
-    </div>
-
-    <div id="message"></div>
-    <div id="wrong-password-message"></div>
-  </div>
-
-<script>
-  const correctPassword = "CHAMPION";
-  const wrongText = "Nah! In all CAPS, Trust Your Inner Voice.";
-
-  const paragraphs = [
-    `Just something honest, hidden in plain sight, for you to know.`,
-    `When I first saw you, it wasn’t just with my eyes. It was as if the world itself paused, and in that stillness, something sacred awakened within me. It was a moment that couldn’t be explained, a silent connection that I had long since abandoned believing in. But when I saw you, I felt something real, something deep.`,
-    `You stood there, dressed in white, and in that instant, everything else seemed to disappear. It wasn’t just the dress, but the way it unveiled, your quiet grace.`,
-    `I knew, in that moment, that whatever I truly desire is not destined to remain. I’ve always carried the belief that whatever touches the soul must eventually fade. Yet, still, I stepped forward not with hope, but with curiosity. And almost instantly, I felt the unspoken truth that we would not walk this life together. Still, I could not look away.`,
-    `It is strange, you know? How you cause me such immense pain, yet, somehow, your mere presence has the power to soothe it. I don’t fully understand this paradox, but it’s real, and it lingers with me. Every morning, you are the first thought that comes to my mind, when I experience moments of clarity, I see you not as a memory, but as something alive, something present.`,
-    `I know we cannot be together here, bound by the limits of this world, but in the realm of the Eternal, where there is no separation, I’ve asked for you. I’ve imagined us there, side by side, heads bowed before Allah, as two of one soul reunited.`,
-    `You may never know the depth of what I carry for you. I bear my responsibilities with respect, towards my family. But love... love is something different. It’s not duty. It’s not comfort. It’s the quiet willingness to lose yourself in someone else’s presence, without fear.There’s this thing about me: I dedicate myself to the people I truly care about. making them happy and being with them gives me great pride and confidence. My Sheikh, my father, and now, I realize it’s you as well.`,
-    `In the chaos of it all, I imagine you beside me, bringing a sense of calm and peace you hold.. I don’t speak easily to others, but to you, in silence, I reveal everything. I imagine a place, beyond the impurities of this world, where we speak not as strangers but as souls, bound by a love unspoken yet understood.`,
-    `There’s just simply no way i figured to fully express this love in a lifetime. Even a thousand days with you wouldn’t reveal the peace I experiend beside you.`,
-    `But let me say this: after meeting you, I realized how perfect you are in my eyes. Despite our few conversations, the light jokes, the serious talks, I remember them all. I remember you saying your goal wasn’t clear, but you were determined not to rely on others.You also once shared that instead of stressing over choices, you let others pick what you like, trusting them to know your preferences without burdening yourself, I realized that day that it wasn’t about dependence, but about trust, deep and rock solid.`,
-    `I remember that day you wore the yellow dress. It looked so beautiful on you that I couldn’t tear my eyes away. Your reaction was so sweet,shy and confused, all at once. It made my whole week. There was something in the way you carried yourself that drew me in something deeper.I can’t help but smile when I think of it, even now.`,
-    `I remember that moment when I spoke, and you just listened, if I could ask Allah for you in the afterlife, You replied, “Interesting,” and walked away, When returned, your eyes were swollen, but you smiled, as if nothing had happened. In that brief, vulnerable moment, I caught a glimpse of your grace and depth yet there was no answer.,Still i wait, wondering ..`,
-    `I remember watching you sleep, so peaceful, so calm. Maybe it was the stillness, or the way your messy hair fell across your face. That gentle mess still catches me every time, you seemed so effortlessly beautiful. It brought me a sense of calm I can’t explain. You used to call me a creeper for it, I still laugh that little did she know how much i adore her. I remember sitting next to you, playing with your hair while you slept, waiting for you to wake, then teasing you with the smell of Vicks right by your nose. Your reactions, always the cutest, always the funniest.`,
-    `When you came to Bahrain, I may have seemed distant but I was genuinely excited.Things is, I mentioned your name without hesitation when asked about my ideal woman. But hearing later that your presence around me would be uncomfortable possibly even unsafe for you ? shattered me in ways I can’t explain.`,
-    `I dont compare myself to anyone’s father but with me you will be safe and possibly even more content. I hold you close in every way I can.`,
-    `It goes against every part of me to even imagine. hurting you ?! 🙃`,
-    `I recall telling you that everything about you, I Loved. and to be honest, No matter how hard I tried, I couldn’t stop until now. It’s like a force of nature, something beyond my control. I just wanted you to know that there is someone out there who loves you without expectation, without return, without condition.`,
-    `After all this time, I hold you in two names: my Champion, my Yugen.`,
-    `Even if you never know the full depth of this love, know this: you are in my prayers, and in my heart.`
-  ];
-
-  const messageBox = document.getElementById("message");
-  const passwordField = document.getElementById("password");
-  const revealButton = document.querySelector(".reveal-tab");
-  const wrongPasswordBox = document.getElementById("wrong-password-message");
-  const audio = document.getElementById("audio-player");
-
-  function checkPassword() {
-    const entered = passwordField.value.trim();
-    if (entered === correctPassword) {
-      wrongPasswordBox.textContent = "";
-      wrongPasswordBox.style.opacity = "0";
-      wrongPasswordBox.style.visibility = "hidden";
-
-      // Hide intro line
-      document.getElementById("intro-line").style.display = "none";
-
-      messageBox.innerHTML = "";
-      paragraphs.forEach(text => {
-        const p = document.createElement("p");
-        p.textContent = text;
-        messageBox.appendChild(p);
-      });
-
-      // Append the "Always!" in handwriting style below all paragraphs
-      const alwaysElem = document.createElement("p");
-      alwaysElem.className = "always-text";
-      alwaysElem.textContent = "Always!.";
-      messageBox.appendChild(alwaysElem);
-
-      // Reveal with smooth fade + slide up
-      messageBox.style.display = "block";
-
-      // force reflow for transition to work properly
-      void messageBox.offsetWidth;
-
-      messageBox.classList.add("revealed");
-
-      passwordField.style.display = "none";
-      revealButton.style.display = "none";
-
-      audio.volume = 0.09;
-      audio.play().catch(err => console.error("Audio play error:", err));
-
-      startFadeObserver();
-    } else {
-      messageBox.classList.remove("revealed");
-      messageBox.style.opacity = "0";
-      wrongPasswordBox.textContent = wrongText;
-      wrongPasswordBox.style.opacity = "1";
-      wrongPasswordBox.style.visibility = "visible";
-    }
-  }
-
-  passwordField.addEventListener("input", () => {
-    wrongPasswordBox.style.opacity = "0";
-    wrongPasswordBox.style.visibility = "hidden";
-  });
-
-  function startFadeObserver() {
-    const options = {
-      root: null,
-      rootMargin: '-20px 0px 0px 0px',
-      threshold: Array.from({length: 101}, (_, i) => i / 100)
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const minOpacity = 0.3;
-        const ratio = entry.intersectionRatio;
-        const opacity = Math.max(minOpacity, ratio);
-        entry.target.style.opacity = opacity;
-      });
-    }, options);
-
-    messageBox.querySelectorAll("p").forEach(p => {
-      observer.observe(p);
-    });
-  }
-</script>
-</body>
-</html>
