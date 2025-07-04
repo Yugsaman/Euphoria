@@ -105,6 +105,10 @@
     pointer-events: none; /* So clicks pass through */
     background: linear-gradient(to bottom, #f6f8fa 0%, transparent 100%);
     z-index: 1000;
+
+    /* Start fully transparent */
+    opacity: 0;
+    transition: opacity 0.5s ease;
   }
 </style>
 </head>
@@ -187,8 +191,10 @@ Even if you never know the full depth of this love, know this: you are in my pra
       audio.volume = 0.09;
       audio.play().catch(err => console.error("Audio play error:", err));
 
-      // Show fade overlay
+      // Show fade overlay and start listening to scroll
       fadeOverlay.style.display = "block";
+      window.addEventListener("scroll", onScrollFade);
+      onScrollFade(); // initial call to set opacity
     } else {
       messageBox.style.opacity = "0";
       wrongPasswordBox.textContent = wrongText;
@@ -202,6 +208,23 @@ Even if you never know the full depth of this love, know this: you are in my pra
     wrongPasswordBox.style.opacity = "0";
     wrongPasswordBox.style.visibility = "hidden";
   });
+
+  // Animate fade overlay opacity on scroll
+  function onScrollFade() {
+    const fadeStart = 0;  // start fade at top
+    const fadeEnd = 120;  // pixels scrolled where fade fully visible
+    const scrollTop = window.scrollY || window.pageYOffset;
+
+    if(scrollTop <= fadeStart) {
+      fadeOverlay.style.opacity = '0';
+    } else if(scrollTop >= fadeEnd) {
+      fadeOverlay.style.opacity = '1';
+    } else {
+      // interpolate between 0 and 1
+      const opacity = (scrollTop - fadeStart) / (fadeEnd - fadeStart);
+      fadeOverlay.style.opacity = opacity.toFixed(2);
+    }
+  }
 </script>
 </body>
 </html>
